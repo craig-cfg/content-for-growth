@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air Source Heat Pumps in Yorkshire: What the Heat Loss Survey Actually Tells You — Preview</title>
+  <style>
+    /* Warmaway brand tokens */
+    :root {
+      --ww-primary: #E8311F;
+      --ww-dark: #1A1A1A;
+      --ww-mid: #444444;
+      --ww-light: #F5F5F5;
+      --ww-border: #E0E0E0;
+      --ww-font: 'Arial', sans-serif;
+    }
+
+    body {
+      font-family: var(--ww-font);
+      color: var(--ww-dark);
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+
+    .preview-banner {
+      background: #1A1A1A;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    .article-container {
+      max-width: 760px;
+      margin: 40px auto;
+      padding: 0 24px 60px;
+    }
+
+    .article-title {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      color: var(--ww-dark);
+    }
+
+    .article-meta {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 32px;
+    }
+
+    /* Answer callout */
+    .cfg-ww-answer-callout {
+      background: #F0F7FF;
+      border-left: 4px solid var(--ww-primary);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .cfg-ww-answer-callout p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* Body text */
+    .cfg-ww-article p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin: 0 0 20px;
+      color: var(--ww-dark);
+    }
+
+    .cfg-ww-article h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--ww-dark);
+      margin: 44px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ww-primary);
+    }
+
+    .cfg-ww-article h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--ww-dark);
+      margin: 28px 0 10px;
+    }
+
+    /* Callout */
+    .cfg-ww-callout {
+      background: #FFF8F0;
+      border-left: 4px solid #F0A500;
+      padding: 18px 22px;
+      margin: 28px 0;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .cfg-ww-callout-label {
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #C07800;
+      margin: 0 0 8px;
+    }
+
+    .cfg-ww-callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Table */
+    .cfg-ww-table-wrap {
+      overflow-x: auto;
+      margin: 28px 0;
+    }
+
+    .cfg-ww-table-wrap table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .cfg-ww-table-wrap th {
+      background: var(--ww-dark);
+      color: #fff;
+      padding: 12px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .cfg-ww-table-wrap td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--ww-border);
+      vertical-align: top;
+    }
+
+    .cfg-ww-table-wrap tr:last-child td {
+      border-bottom: none;
+    }
+
+    .cfg-ww-table-wrap tr:nth-child(even) td {
+      background: var(--ww-light);
+    }
+
+    /* CTA blocks */
+    .cfg-ww-cta-block {
+      background: var(--ww-dark);
+      color: #fff;
+      padding: 28px 32px;
+      margin: 40px 0;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .cfg-ww-cta-block p {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .cfg-ww-cta-button {
+      display: inline-block;
+      background: var(--ww-primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.3px;
+    }
+
+    .cfg-ww-cta-button:hover {
+      background: #c5250f;
+    }
+
+    /* FAQ */
+    #faq h2 {
+      margin-top: 48px;
+    }
+
+    .cfg-ww-faq-item {
+      border-bottom: 1px solid var(--ww-border);
+      padding: 22px 0;
+    }
+
+    .cfg-ww-faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .cfg-ww-faq-item h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      color: var(--ww-dark);
+    }
+
+    .cfg-ww-faq-item p {
+      margin: 0;
+      color: var(--ww-mid);
+    }
+
+    /* Links */
+    a {
+      color: var(--ww-primary);
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    strong {
+      color: var(--ww-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preview-banner">PREVIEW ONLY — not for publication | Warmaway | April 2026</div>
+
+  <div class="article-container">
+
+    <h1 class="article-title">Air Source Heat Pumps in Yorkshire: What the Heat Loss Survey Actually Tells You</h1>
+    <div class="article-meta">Warmaway | April 2026 | For client review</div>
+
+    <div class="cfg-ww-article">
+
+      <div class="cfg-ww-answer-callout">
+        <p>A heat loss survey for an air source heat pump measures how much heat each room in your home loses on the coldest day of the year. That figure drives three things: the size of the heat pump (in kilowatts), the flow temperature the system needs to operate at, and the radiator schedule, which identifies room by room which emitters are adequate for heat pump use and which are not. The <a href="https://mcscertified.com/wp-content/uploads/2025/12/MIS-3005-D-The-Heat-Pump-Design-Standard-V3.0-Final.pdf">MCS Heat Pump Design Standard MIS 3005-D</a> requires this calculation before any MCS-certified installation. <a href="https://www.ofgem.gov.uk/sites/default/files/2026-03/bus_guidance_for_property_owners_v5_draft-20260323111450.pdf">Ofgem's BUS property owner guidance (from April 2026)</a> also lists total building heat loss calculations as required evidence for Boiler Upgrade Scheme voucher redemption.</p>
+      </div>
+
+      <p>The heat loss calculation is the first thing Warmaway carries out on every air source heat pump survey in Yorkshire. Not because it is a box to tick before paperwork can proceed, but because without it no one can tell you what system your house actually needs. Most Yorkshire homes asking about air source heat pumps in 2026 are older properties, and older properties behave differently from the national averages that online calculators use. A bedroom in a stone-built Huddersfield terrace is not the same as a bedroom in a cavity-walled Leeds new-build, even if both rooms are the same size on the floor plan.</p>
+
+      <p>This article explains what the heat loss survey involves, what the three outputs from it mean for your installation, and why the calculation matters more in Yorkshire's housing stock than most installers explain.</p>
+
+      <h2>Why your boiler never needed a heat loss calculation — and why a heat pump does</h2>
+
+      <p>Gas boilers run at flow temperatures of 70 to 80 degrees Celsius. At those temperatures, the system pushes enough heat through even an undersized radiator to warm the room. Poor design is masked by the boiler running longer and burning more gas. The homeowner feels warm. The inefficiency is invisible on the comfort side and only shows up on the gas bill.</p>
+
+      <p>Air source heat pumps work differently. They are designed to run at lower flow temperatures — typically 35 to 55 degrees Celsius depending on outdoor conditions. At those temperatures, every emitter in the system must be correctly sized to deliver the heat that room needs. A radiator that was adequate at 75-degree flow will not deliver the same output at 45-degree flow. The physics is straightforward: lower temperature water carries less heat per litre, so the radiator needs more surface area to compensate.</p>
+
+      <p>This is not a weakness in heat pump technology. It is precisely why heat pumps achieve their efficiency. But it means the system design must be right before installation, not adjusted afterwards. A heat pump cannot be turned up to compensate for an undersized radiator the way a boiler can. The heat loss calculation is what makes correct design possible.</p>
+
+      <p>We have carried out heat loss calculations in Yorkshire homes since our first heat pump installation in 2003, well before most Yorkshire installers had encountered the technology. What we have seen consistently is that homes where the calculation was done properly before installation are warm, comfortable, and run efficiently. Homes where it was not are the ones where the engineer comes back six months later to investigate why a bedroom stays cold.</p>
+
+      <h2>What the engineer actually measures during the survey</h2>
+
+      <p>The heat loss survey is a room-by-room exercise. Each room is assessed individually because each room has its own set of external surfaces, its own window area, and its own ventilation characteristics. The total building heat loss is the sum of all the room heat losses, plus system losses.</p>
+
+      <p>In each room, the engineer measures and records:</p>
+
+      <p><strong>Room dimensions including ceiling height.</strong> Heat loss is a function of volume, not just floor area. A room with a high Victorian ceiling loses more heat than the same footprint with a standard ceiling, because there is more air to heat and more roof surface above.</p>
+
+      <p><strong>Wall construction and thickness.</strong> This is where Yorkshire housing stock diverges significantly from national averages. A rough-cut millstone grit wall, common in West Yorkshire's older stone-built terraces in Bradford, Huddersfield, and the villages west of Halifax, conducts heat more readily than a smooth brick wall of the same thickness. A solid 9-inch brick wall, standard in Dewsbury and Leeds 1930s semis, loses heat at a different rate from a filled cavity wall built after the 1980s. The engineer does not assume. The engineer records what is actually there.</p>
+
+      <p><strong>Glazing type.</strong> Single-glazed windows, common in older Yorkshire properties with original timber frames, lose heat at roughly 5.8 watts per square metre per degree of temperature difference. A modern double-glazed unit loses closer to 1.4 to 2 watts per square metre per degree. The difference across a bay window matters.</p>
+
+      <p><strong>Floor construction.</strong> Suspended timber floors with uninsulated voids underneath are standard in pre-1960s Yorkshire housing. They can account for 10 to 15 percent of a room's total heat loss through draughts and conduction. Solid concrete floors, increasingly common from the 1960s onwards, lose heat differently and at a lower rate.</p>
+
+      <p><strong>Loft insulation presence and depth.</strong> A property with 270mm of mineral wool between the joists loses very little heat through the roof. A property with 50mm of old insulation, or gaps where the insulation has settled and pulled away from the eaves, loses substantially more.</p>
+
+      <p><strong>Ventilation.</strong> Open fireplaces, extract fans, draughty loft hatches, and poorly-sealed window frames all increase the rate at which warm air leaves the room and cold air enters. All of it gets assessed and fed into the calculation.</p>
+
+      <p>All of this is fed into MCS-approved software, which produces the heat loss figure for each room at the design temperature — the external temperature the system must cope with at peak. For West Yorkshire, the design temperature used in MCS calculations is typically -3 to -4 degrees Celsius. The heat pump must be able to heat the house to a comfortable temperature when it is that cold outside.</p>
+
+      <h2>From measurements to three outputs: pump size, flow temperature, radiator schedule</h2>
+
+      <p>The calculation produces three figures that determine the entire system design.</p>
+
+      <p><strong>Heat pump size in kilowatts.</strong> The total building heat loss at design temperature tells the engineer how many kilowatts the heat pump must deliver at its lowest-efficiency point. This is why rules of thumb based on bedroom count consistently fail in older Yorkshire homes. A three-bedroom 1930s semi in Dewsbury with original single-leaf brick walls, single-glazed bay windows, and minimal loft insulation can have a heat loss of 9 or 10 kilowatts at design temperature. A three-bedroom 1980s detached in Wakefield with filled cavity walls, double glazing, and 200mm of loft insulation might have a heat loss of 5 to 6 kilowatts. Both are three-bedroom houses. The heat pump they need is not the same.</p>
+
+      <p><strong>Flow temperature.</strong> Once the heat loss per room and the radiator sizes are known, the engineer calculates the flow temperature the system needs to maintain comfort. Lower flow temperatures, in the 35 to 42-degree range, produce higher efficiency from the heat pump. A heat pump running at 35-degree flow will typically achieve a coefficient of performance of 3.5 or above, meaning it produces 3.5 units of heat for every unit of electricity it consumes. At 55-degree flow, that figure falls significantly. The difference is real money over a heating season.</p>
+
+      <p>Whether the system can run at lower flow temperatures depends on the radiators. If the existing radiators are large enough to emit the required heat at 45 degrees rather than 70 degrees, the system can be designed for lower flow temperatures and higher efficiency. If they are not, the choice is between replacing radiators and running at a higher flow temperature. The survey makes this decision explicit before any quotation is produced.</p>
+
+      <p><strong>The radiator schedule.</strong> This is the output that most buyers are least familiar with and most surprised by. The design engineer at Warmaway produces a radiator schedule for every ASHP survey — a room-by-room document that shows what heat each room requires at the design flow temperature, what the existing radiator delivers at that temperature, and whether a change is needed. It is specific to the property. It is not a generic recommendation to upgrade all radiators. Some rooms will need no changes. Others will need a larger panel or a double convector where a single panel currently sits.</p>
+
+      <div class="cfg-ww-callout">
+        <p class="cfg-ww-callout-label">Important note</p>
+        <p>The radiator schedule is not a demolition order. It identifies which radiators need upgrading and which are already adequate for low-temperature operation. Radiators that were oversized for a previous high-temperature boiler installation often perform well with a heat pump without any changes. The survey tells you what applies to your specific rooms, not what applies to the average property.</p>
+      </div>
+
+      <div class="cfg-ww-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Output from the survey</th>
+              <th>What it determines</th>
+              <th>What happens if the figure is high</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total building heat loss (kW)</td>
+              <td>Heat pump unit size</td>
+              <td>Larger unit selected. Higher upfront cost. More capacity on the coldest nights.</td>
+            </tr>
+            <tr>
+              <td>Per-room heat loss vs radiator output</td>
+              <td>Flow temperature and radiator schedule</td>
+              <td>Higher flow temperature needed, or radiator changes required. Higher flow temperature reduces efficiency and raises running costs.</td>
+            </tr>
+            <tr>
+              <td>Radiator schedule</td>
+              <td>Which emitters need replacing before installation</td>
+              <td>Radiator changes are scoped into the installation quote before you commit. No surprises after installation begins.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Yorkshire housing stock — what makes the heat loss calculation different here</h2>
+
+      <p>Yorkshire has a higher proportion of pre-1960s housing than the national average. West Yorkshire in particular has significant concentrations of stone-built terraces, 1930s brick semis, Victorian through-terraces, and farmhouse conversions. All of these building types have characteristics that produce higher heat loss figures than what national online calculators assume.</p>
+
+      <p>Stone-built properties, which make up a substantial proportion of housing in Bradford, Huddersfield, and the towns around them, present a specific challenge. Millstone grit is a dense, absorbent material with a higher thermal conductivity than fired brick. A 450mm stone wall — standard for an 1870s terrace — is not equivalent in thermal performance to a 300mm brick wall with the same surface area. A survey that inputs generic wall U-values without considering the actual material will produce a heat loss figure that is lower than reality, which leads to an undersized heat pump.</p>
+
+      <p>Party walls between terraced or semi-detached properties are another area where Yorkshire housing stock regularly catches out simplified calculations. The standard assumption in heat loss software is that a party wall borders an unheated space. For a mid-terrace property in Leeds or Wakefield where both neighbours are occupied and heated, the actual heat loss through that wall is much lower than the calculation assumes. A surveyor who adjusts for this on site, rather than accepting the software default, will produce a more accurate figure. We record what is actually there.</p>
+
+      <p>Yorkshire winters also matter. The MCS design temperature for West Yorkshire is colder than for the South East. We size every system to cope with the temperatures this region actually experiences. The NIBE, Stiebel Eltron, and Grant units Warmaway installs operate effectively down to -15 to -20 degrees Celsius. Yorkshire rarely approaches those temperatures, but the system is sized to cope when it does.</p>
+
+      <p>We were among the first installers in Yorkshire to carry out heat loss calculations in older stone and brick properties, starting with our first heat pump installation in 2003. Over two decades of surveying West and South Yorkshire homes has built a practical understanding of how these buildings behave that no national comparison tool can replicate.</p>
+
+      <h2>What the survey tells you about Boiler Upgrade Scheme eligibility</h2>
+
+      <p>The Boiler Upgrade Scheme provides <a href="https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus">£7,500 toward the cost of an air source heat pump installation</a>, applied as an upfront deduction from the installer's quote. The application is installer-led — Warmaway manages it on your behalf.</p>
+
+      <p>The survey and the BUS process are connected in two ways. First, the BUS requires an MCS-certified installation. MCS certification requires that the heat pump design complies with MIS 3005-D, which requires a heat loss calculation. Second, Ofgem's updated guidance for applications from 28 April 2026 lists total building heat loss calculations as a required evidence document at voucher redemption. The document is produced by Warmaway as part of the survey. You do not need to obtain it separately.</p>
+
+      <p>The EPC requirement has changed. From 28 April 2026, retrofit properties no longer need to provide a valid EPC before the BUS application is made. But where an EPC exists for your property and it recommends loft or cavity wall insulation, those improvements still need to be addressed before the system can be installed under BUS. Warmaway checks EPC status at the survey stage and tells you then if there is anything outstanding — not after you have committed to an installation date.</p>
+
+      <div class="cfg-ww-cta-block">
+        <p>If you want to know whether your Yorkshire home is heat pump ready and what the Boiler Upgrade Scheme would cover, the free site survey is the starting point. Warmaway carries out the full heat loss calculation and produces the radiator schedule at no charge.</p>
+        <a class="cfg-ww-cta-button" href="https://www.warmaway.co.uk/renewables/air-source-heat-pumps">Get a free survey from Warmaway</a>
+      </div>
+
+      <h2>What a heat loss survey does not tell you — and what comes after</h2>
+
+      <p>The heat loss calculation tells the engineer what size system the property needs and what flow temperature to design for. It does not tell you what your electricity bill will be.</p>
+
+      <p>That distinction matters, and it is one we make at every survey. Running cost estimates are indicative. Your actual costs depend on the electricity tariff you are on, how much hot water your household uses, how you set the system controls, and how many days in a Yorkshire winter reach or approach the design temperature. <a href="https://www.cse.org.uk/news/why-measuring-home-heat-loss-is-important-before-choosing-a-heat-pump/">The Centre for Sustainable Energy's research on measured heat loss</a> notes that actual building heat loss can differ significantly from what an EPC assumes, which is exactly why a site survey produces a more accurate basis for system design than any online estimate. But even the most accurate site survey cannot predict future electricity unit rates.</p>
+
+      <p>An installer who gives you a precise annual running cost figure at the survey stage without significant qualification is telling you what you want to hear. We give you the measured heat loss, the system design that follows from it, and the tariff structures that make heat pumps cost-effective — with the qualification that the final number depends on variables outside both our control.</p>
+
+      <p>After the survey, the radiator schedule and full system design are produced from the measurements. The quotation Warmaway provides includes any radiator changes identified by the schedule, the heat pump unit, installation labour, and the £7,500 BUS grant deduction where applicable. What you receive reflects your actual property. The survey is free and carries no obligation to proceed.</p>
+
+      <section id="faq">
+
+        <h2>Frequently asked questions</h2>
+
+        <div class="cfg-ww-faq-item">
+          <h3>What is a heat loss survey for an air source heat pump?</h3>
+          <p>A heat loss survey is a room-by-room calculation of how much heat your home loses on the coldest day of the year. The total figure tells the installer what size heat pump is needed. The per-room figures drive the radiator schedule, identifying which emitters are adequate for heat pump use and which need upgrading. MCS requires this calculation under its Heat Pump Design Standard MIS 3005-D before any MCS-certified installation can proceed. It is also required as evidence for Boiler Upgrade Scheme voucher applications.</p>
+        </div>
+
+        <div class="cfg-ww-faq-item">
+          <h3>Is the heat loss survey free with Warmaway?</h3>
+          <p>Yes. Warmaway provides the site survey and heat loss calculation at no charge. The survey produces the radiator schedule and full system design. A quotation is then provided from that design, including any identified radiator changes and the BUS grant deduction where applicable. There is no obligation to proceed after the survey.</p>
+        </div>
+
+        <div class="cfg-ww-faq-item">
+          <h3>Does my Yorkshire home qualify for an air source heat pump?</h3>
+          <p>Most Yorkshire homes can accommodate an air source heat pump with the right system design. Older properties — stone-built terraces in Bradford and Huddersfield, 1930s brick semis in Dewsbury, Leeds, Wakefield, and Barnsley — tend to have higher heat losses than the national average, which means a larger unit and potentially some radiator changes. The survey tells you the specifics for your home. Warmaway has been installing heat pumps in Yorkshire since 2003, across a wide range of property types in West and South Yorkshire.</p>
+        </div>
+
+        <div class="cfg-ww-faq-item">
+          <h3>Do I need a heat loss survey to get the Boiler Upgrade Scheme grant?</h3>
+          <p>Yes. The Boiler Upgrade Scheme requires an MCS-certified installation, and MCS certification requires a heat loss calculation under design standard MIS 3005-D. Ofgem also requires the total building heat loss calculation as evidence at voucher redemption. Warmaway produces this documentation as part of every ASHP survey and manages the BUS application on your behalf. The current BUS grant is £7,500 for an air source heat pump, applied as an upfront deduction from the quote.</p>
+        </div>
+
+        <div class="cfg-ww-faq-item">
+          <h3>What happens if my radiators are not suitable for a heat pump?</h3>
+          <p>The radiator schedule produced from the heat loss survey identifies which radiators need upgrading and which are already adequate. Warmaway includes any necessary radiator changes in the installation quote, so there are no additional costs after you have agreed to proceed. Some radiators in older Yorkshire homes are oversized for their rooms because they were specified for a high-temperature boiler. Those radiators often perform well at the lower flow temperatures a heat pump uses, with no changes needed.</p>
+        </div>
+
+      </section>
+
+      <div class="cfg-ww-cta-block">
+        <p>The heat loss survey is the starting point for every Warmaway air source heat pump installation in Yorkshire. Book yours and we will tell you exactly what your property needs, what system we would design, and what the Boiler Upgrade Scheme would cover.</p>
+        <a class="cfg-ww-cta-button" href="https://www.warmaway.co.uk/renewables/air-source-heat-pumps">Book your free survey</a>
+      </div>
+
+    </div>
+
+    <hr style="margin-top:60px;border:none;border-top:1px solid #E0E0E0;">
+    <div style="margin-top:24px;font-size:13px;color:#999;line-height:1.6;">
+      <strong style="color:#444;">Publishing details — for the operator</strong><br>
+      <strong>Meta title:</strong> Air Source Heat Pumps Yorkshire: The Heat Loss Survey | Warmaway (58/60)<br>
+      <strong>Meta description:</strong> What happens during a Warmaway heat loss survey before ASHP installation in Yorkshire — what the engineer measures, what the numbers drive, and why sizing matters in older Yorkshire homes. (155/160 — trim "older" if needed)<br>
+      <strong>URL slug:</strong> /posts/air-source-heat-pump-heat-loss-survey-yorkshire<br>
+      <strong>Primary keyword:</strong> air source heat pumps Yorkshire
+    </div>
+
+  </div>
+
+</body>
+</html>
