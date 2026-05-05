@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is Battery Storage Now Worth Adding From Day One?</title>
+<meta name="description" content="The honest economics of adding battery storage from day one versus retrofitting later — including the three scenarios with different payback profiles, how to size correctly, and when we say wait.">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Is Battery Storage Now Worth Adding From Day One?">
+<meta property="og:description" content="The honest economics of adding battery storage from day one versus retrofitting later — including the three scenarios with different payback profiles, how to size correctly, and when we say wait.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://proposals.contentforgrowth.co.uk/exemplars/solar-battery-storage">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.contentforgrowth.co.uk/#organization",
+      "name": "Content For Growth",
+      "url": "https://www.contentforgrowth.co.uk/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://proposals.contentforgrowth.co.uk/logo200.png",
+        "width": 200,
+        "height": 200
+      },
+      "description": "SEO and AI-visibility content service for small businesses. One client per sector, per county.",
+      "sameAs": ["https://www.contentforgrowth.co.uk/"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://proposals.contentforgrowth.co.uk/#website",
+      "url": "https://proposals.contentforgrowth.co.uk/",
+      "name": "Content For Growth — Proposals and Example Library",
+      "publisher": { "@id": "https://www.contentforgrowth.co.uk/#organization" },
+      "inLanguage": "en-GB"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://proposals.contentforgrowth.co.uk/exemplars/solar-battery-storage#webpage",
+      "url": "https://proposals.contentforgrowth.co.uk/exemplars/solar-battery-storage",
+      "name": "Is Battery Storage Now Worth Adding From Day One?",
+      "isPartOf": { "@id": "https://proposals.contentforgrowth.co.uk/#website" },
+      "inLanguage": "en-GB",
+      "breadcrumb": { "@id": "https://proposals.contentforgrowth.co.uk/exemplars/solar-battery-storage#breadcrumb" }
+    },
+    {
+      "@type": "Article",
+      "@id": "https://proposals.contentforgrowth.co.uk/exemplars/solar-battery-storage#article",
+      "headline": "Is Battery Storage Now Worth Adding From Day One?",
+      "name": "Is Battery Storage Now Worth Adding From Day One?",
+      "description": "The honest economics of adding battery storage from day one versus retrofitting later — including the three scenarios with different payback profiles, how to size correctly, and when we say wait.",
+      "abstract": "This article addresses whether solar battery storage is worth commissioning alongside a new solar installation or adding later as a retrofit. The core economic mechanism is explained: without a battery, typical households self-consume approximately 35% of what their panels generate; a correctly sized battery raises this to around 70%, with each additional kilowatt-hour used at home saving the difference between the import rate (around 24p) and the export rate (4 to 15p). Three scenarios are given distinct payback profiles: solar with battery on a flat-rate tariff (12 to 15 years), solar with battery on a time-of-use tariff using overnight grid arbitrage (7 to 10 years), and retrofit battery addition (longer payback due to 10 to 20% cost premium from separate mobilisation). Battery sizing methodology is covered in detail, with the oversizing trap identified as the most common purchasing mistake: the right size is determined by evening and overnight consumption, not solar capacity. The smart tariff opportunity is quantified — a 10kWh battery cycling between 7p overnight and 24p during the day represents over £600 per year in grid arbitrage savings alone. The article concludes with three scenarios where battery storage is not recommended at day one: low evening consumption households, budget-constrained buyers who should prioritise a well-specified solar system, and properties with short ownership horizons or low generation potential.",
+      "url": "https://proposals.contentforgrowth.co.uk/exemplars/solar-battery-storage",
+      "mainEntityOfPage": { "@id": "https://proposals.contentforgrowth.co.uk/exemplars/solar-battery-storage#webpage" },
+      "author": { "@id": "https://www.contentforgrowth.co.uk/#organization" },
+      "publisher": { "@id": "https://www.contentforgrowth.co.uk/#organization" },
+      "isPartOf": { "@id": "https://proposals.contentforgrowth.co.uk/#website" },
+      "inLanguage": "en-GB",
+      "wordCount": 2100,
+      "keywords": "solar battery storage, battery storage payback, solar self-consumption, time-of-use tariff solar, LFP battery solar",
+      "about": { "@type": "Thing", "name": "Solar battery storage economics and sizing" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://proposals.contentforgrowth.co.uk/exemplars/solar-battery-storage#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.contentforgrowth.co.uk/" },
+        { "@type": "ListItem", "position": 2, "name": "Examples", "item": "https://proposals.contentforgrowth.co.uk/exemplars/" },
+        { "@type": "ListItem", "position": 3, "name": "Is Battery Storage Worth Adding From Day One?", "item": "https://proposals.contentforgrowth.co.uk/exemplars/solar-battery-storage" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://proposals.contentforgrowth.co.uk/exemplars/solar-battery-storage#faq",
+      "isPartOf": { "@id": "https://proposals.contentforgrowth.co.uk/exemplars/solar-battery-storage#webpage" },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is battery storage worth adding to an existing solar system?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Usually yes, particularly if your system was installed without a battery and you are currently exporting a significant proportion of your generation. The economics depend on your evening consumption pattern, your tariff, and the cost of the retrofit battery. A retrofit carries a 10 to 20% cost premium over a day-one installation due to the separate mobilisation cost. The VAT position is currently the same: battery storage, including retrofits to existing solar systems, carries 0% VAT until 31 March 2027. A diagnostic check on your system's performance data gives the clearest picture of how much your battery would actually save before you commit." }
+        },
+        {
+          "@type": "Question",
+          "name": "What size solar battery do I need for a three-bedroom house?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Bedroom count is a poor proxy for battery sizing. What matters is your evening and overnight electricity consumption. For most three-bedroom houses with typical usage, a 5kWh battery is a reasonable starting point. If the household runs high-consumption appliances in the evening, has an electric vehicle, or the occupants are home during the day, a 10kWh battery may be justified. Oversizing a battery relative to your evening consumption extends your payback period without improving your daily self-consumption meaningfully. The right size comes from reviewing your actual smart meter consumption data across the year, not from a rule of thumb." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a solar battery charge from the grid overnight?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. This is possible if the system uses a hybrid inverter that supports bidirectional grid charging and you are on a time-of-use tariff with a defined off-peak window. On a tariff such as Octopus Go, the battery can charge at the overnight rate of around 7 to 9p per kilowatt-hour and discharge during standard-rate hours at around 24p. This grid arbitrage is independent of the solar contribution and earns a saving on cloudy days in winter when solar generation is low. Not all inverters support grid charging. This needs to be confirmed at specification stage before the system is installed." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a solar battery last?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most residential batteries installed in the UK in 2024 and 2025 use lithium iron phosphate (LFP) chemistry, which is rated for 4,000 to 6,000 full charge cycles. Cycling once per day, a 6,000-cycle battery lasts over 16 years. Most manufacturers offer a 10-year warranty guaranteeing at least 70% of original capacity. In practice, batteries that are not cycled to full depth every day, which is common in summer when solar generation partially fills the battery each afternoon, tend to last longer than their cycle rating implies. The inverter may have a shorter expected lifespan than the battery itself and should be considered as part of the whole-system cost." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does adding a battery improve my solar panels' EPC rating?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes, in most cases. Battery storage improves the home's self-consumption of renewable energy, which is captured in the energy efficiency assessment used for Energy Performance Certificates. A higher EPC rating is increasingly relevant for homeowners planning to rent the property, as minimum EPC thresholds for rental properties are expected to rise. It is also relevant for resale, as buyers increasingly factor in energy efficiency ratings. The extent of the EPC improvement depends on the assessor's methodology and the specific battery and solar configuration." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there any VAT relief on solar battery storage?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. Since 1 February 2024, electrical battery storage installed in residential properties carries a 0% VAT rate under HMRC's energy-saving materials relief. This applies whether the battery is installed alongside a new solar system or retrofitted to an existing one. The 0% rate applies until 31 March 2027, after which battery storage reverts to the reduced rate of 5%. A 5kWh battery system costing around £4,000 installed saves approximately £200 in VAT compared to the 5% rate. The VAT saving is automatically applied by any MCS-certified installer." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Inline CSS — CFG canonical -->
+<style>
+  /* ---------- Reset & base ---------- */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #1a1a1a; background: #ffffff; line-height: 1.6; font-size: 17px;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; text-decoration: underline; text-decoration-color: #c8c8c8; text-underline-offset: 3px; }
+  a:hover { text-decoration-color: #0a0a0a; }
+
+  /* ---------- Layout ---------- */
+  .container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+  .container-wide { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Header ---------- */
+  header { padding: 28px 0; border-bottom: 1px solid #eeeeee; }
+  header .container-wide { display: flex; justify-content: space-between; align-items: center; }
+  header img { width: 110px; height: auto; }
+  header a { text-decoration: none; }
+  header .nav-cta {
+    font-size: 14px; font-weight: 500; color: #1a1a1a;
+    border: 1px solid #1a1a1a; padding: 10px 20px; border-radius: 2px; transition: all 0.2s ease;
+  }
+  header .nav-cta:hover { background: #1a1a1a; color: #ffffff; }
+
+  /* ---------- Article typography ---------- */
+  main.article { padding: 56px 0 72px; }
+  h1 { font-size: clamp(32px, 5vw, 44px); line-height: 1.15; font-weight: 700; letter-spacing: -0.02em; color: #0a0a0a; margin-bottom: 24px; }
+  h2 { font-size: clamp(24px, 3.5vw, 30px); line-height: 1.25; font-weight: 700; letter-spacing: -0.015em; color: #0a0a0a; margin-top: 48px; margin-bottom: 18px; }
+  h3 { font-size: 20px; line-height: 1.3; font-weight: 600; color: #0a0a0a; margin-top: 32px; margin-bottom: 12px; }
+  p { margin-bottom: 18px; color: #333333; }
+  p.lead { font-size: 20px; line-height: 1.5; color: #2a2a2a; margin-bottom: 32px; }
+  strong { color: #0a0a0a; font-weight: 600; }
+
+  /* ---------- Lists ---------- */
+  ul, ol { margin: 0 0 20px 24px; }
+  li { margin-bottom: 8px; color: #333333; }
+
+  /* ---------- Callouts ---------- */
+  .callout, .answer-box {
+    background: #f8f8f6; border-left: 3px solid #0a0a0a;
+    padding: 20px 24px; margin: 28px 0; border-radius: 2px;
+  }
+  .callout p:last-child, .answer-box p:last-child { margin-bottom: 0; }
+  .callout strong {
+    display: block; font-size: 13px; text-transform: uppercase;
+    letter-spacing: 0.08em; color: #5a5a5a; margin-bottom: 8px; font-weight: 600;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn, a.btn {
+    display: inline-block; background: #0a0a0a; color: #ffffff;
+    padding: 16px 32px; font-size: 16px; font-weight: 600; border-radius: 2px;
+    text-decoration: none; transition: all 0.2s ease; border: 1px solid #0a0a0a; margin: 8px 0;
+  }
+  .btn:hover { background: #2a2a2a; }
+
+  /* ---------- FAQ ---------- */
+  .faq-section { margin-top: 48px; border-top: 1px solid #e4e4e4; padding-top: 32px; }
+  .faq-item { padding: 24px 0; border-bottom: 1px solid #e4e4e4; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item h3 { font-size: 18px; margin-top: 0; margin-bottom: 8px; }
+  .faq-item p { margin-bottom: 14px; color: #4a4a4a; }
+  .faq-item p:last-child { margin-bottom: 0; }
+
+  /* ---------- Top-of-article example banner ---------- */
+  .example-banner {
+    margin-top: 32px; margin-bottom: 40px; padding: 28px 32px;
+    background: #f8f8f6; border-left: 3px solid #0a0a0a; border-radius: 2px;
+    font-size: 15px; line-height: 1.55; color: #2a2a2a;
+  }
+  .example-banner strong.banner-eyebrow {
+    color: #0a0a0a; display: block; margin-bottom: 12px;
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+  }
+  .example-banner p { margin-bottom: 16px; color: #2a2a2a; }
+  .example-banner .banner-cta {
+    display: inline-block; background: #0a0a0a; color: #ffffff;
+    padding: 12px 22px; font-size: 14px; font-weight: 600; border-radius: 2px;
+    text-decoration: none; border: 1px solid #0a0a0a; transition: all 0.2s ease;
+  }
+  .example-banner .banner-cta:hover { background: #2a2a2a; }
+
+  /* ---------- Site footer ---------- */
+  footer { padding: 40px 0; border-top: 1px solid #eeeeee; text-align: center; font-size: 14px; color: #6a6a6a; }
+  footer a { color: #6a6a6a; }
+  footer a:hover { color: #0a0a0a; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container-wide">
+    <a href="https://www.contentforgrowth.co.uk/" aria-label="Content For Growth home">
+      <img src="https://proposals.contentforgrowth.co.uk/logo200.png" alt="Content For Growth">
+    </a>
+    <a href="https://calendar.app.google/SMyTuUgGSUMyFwPFA" class="nav-cta">Book a call</a>
+  </div>
+</header>
+
+<!-- ARTICLE BODY -->
+<main class="article">
+  <div class="container">
+
+    <div class="example-banner">
+      <strong class="banner-eyebrow">Example article</strong>
+      <p>A demonstration piece. Articles we write for clients are tailored to your business, your accreditations, your service area, your customers' actual questions, your competitive positioning. Those read sharper than this.</p>
+      <a href="https://calendar.app.google/SMyTuUgGSUMyFwPFA" class="banner-cta">Book a 15-minute call →</a>
+    </div>
+
+    <h1>Is Battery Storage Now Worth Adding From Day One?</h1>
+
+    <aside class="answer-box">
+      <p>Battery storage is now worth adding from day one for most households getting solar panels, but the case depends on how your household uses electricity. The core economics: without a battery, most households use roughly 35% of what their panels generate and export the rest at low Smart Export Guarantee rates. A battery raises that to around 70%, and every kilowatt-hour you store and use yourself is worth the full import rate, currently around 24p, rather than the 4 to 15p export rate. Added at the same time as solar, a battery costs 10 to 20% less than a retrofit. On a time-of-use tariff, payback is typically 7 to 10 years. Without one, 12 to 15 years. Bigger is not always better.</p>
+    </aside>
+
+    <p>The question of whether to include battery storage from day one has changed considerably in the past three years. When most systems were installed during the Feed-in Tariff era, a battery was rarely justified. The FiT paid well for all generation regardless of whether you used it, and battery costs were high enough to push payback periods beyond what most households would accept. That calculation has shifted.</p>
+
+    <p>What follows is the honest version of the economics, including the scenarios where a battery is worth adding immediately, the ones where waiting makes more sense, and why the sizing decision matters as much as the decision to buy at all. The article covers what we actually tell homeowners when they ask, which is sometimes different from what the comparison sites suggest.</p>
+
+    <h2>What battery storage actually does — and what it does not do</h2>
+
+    <p>A battery stores electricity your solar panels generate during the day but your household does not use at the moment of generation. Without a battery, that surplus leaves for the grid. With a battery, it stays in your home and is available when the sun goes down.</p>
+
+    <p>The financial mechanism is straightforward. Under the <a href="https://www.ofgem.gov.uk/environmental-and-social-schemes/smart-export-guarantee-seg/generators" target="_blank" rel="noopener noreferrer">Smart Export Guarantee</a>, electricity you export to the grid earns a payment from your energy supplier, typically somewhere between 4p and 15p per kilowatt-hour depending on which tariff you have chosen. Electricity you import from the grid costs around 24p per kilowatt-hour at the current Ofgem price cap rate. A battery shifts electricity from the export column, where it earns around 10p, to the self-consumption column, where it saves you around 24p. That 14p difference per kilowatt-hour is what makes a battery economically meaningful.</p>
+
+    <p>Without a battery, a typical UK household self-consumes approximately 35% of what their solar panels generate across the year. The other 65% goes to the grid. Add a properly sized battery, and self-consumption rises to approximately 70%. For a 4kW system generating around 3,400 kWh per year, the shift from 35% to 70% self-consumption represents an additional 1,190 kWh being used at home rather than exported. At the 14p gap between import and export rates, that is approximately £165 in additional annual savings from battery alone, before accounting for any smart tariff benefit.</p>
+
+    <p>What battery storage does not do is fundamentally change the amount of electricity your panels generate. The generation figure stays the same. The battery changes how much of that generation you capture. A common misconception is that a battery makes solar more efficient. It makes solar more useful to the household that bought it.</p>
+
+    <h2>The honest numbers: day-one vs retrofit, and what tariff you are on</h2>
+
+    <p>There are three scenarios worth understanding before making this decision. Each has a different payback profile.</p>
+
+    <p>The first is solar with battery, installed together, on a standard flat-rate electricity tariff. The battery saves you roughly £165 to £250 per year in additional self-consumption value on top of the solar savings. At an installed cost of around £3,500 to £5,000 for a 5 to 10kWh battery alongside a new solar installation, payback sits at around 12 to 15 years. That is within the battery's 10 to 15 year expected lifespan, but only just. Whether this justifies the upfront cost depends on your view of long-term electricity price direction and how much you value reduced grid reliance.</p>
+
+    <p>The second is solar with battery, installed together, on a time-of-use tariff such as Octopus Go or Octopus Intelligent. These tariffs charge around 7 to 9p per kilowatt-hour during an overnight off-peak window, compared to around 24p during standard hours. A battery with a smart inverter can charge from the grid at 7p overnight and power your household during the day, independently of whether the sun is shining. This grid arbitrage adds a second income stream to the battery. Combined with the solar self-consumption saving, payback shortens to roughly 7 to 10 years. For households with an electric vehicle, the overnight cheap rate is particularly valuable. This is where the economics become clearly compelling.</p>
+
+    <p>The third scenario is a retrofit. This means adding a battery to a system that was installed without one. A retrofit battery carries a cost premium of roughly 10 to 20% compared to adding the same battery at the same time as the solar installation. The reason is mobilisation. Scaffolding, labour, and a return visit all have to be paid for separately. <a href="https://www.gov.uk/guidance/vat-on-energy-saving-materials-and-heating-equipment-notice-7086" target="_blank" rel="noopener noreferrer">HMRC's VAT Notice 708/6 confirms that retrofitting a battery to an existing solar installation carries the same 0% VAT rate</a> as a day-one installation, applicable until 31 March 2027 after which it reverts to 5%. The tax treatment is the same. The installation cost is not.</p>
+
+    <p>The practical conclusion: if you are commissioning solar now and a battery is within your budget, adding it at the same time rather than later saves money on installation and starts the payback clock earlier. If the battery is not within budget on day one, it can always be added later and the VAT position is currently the same either way.</p>
+
+    <aside class="callout">
+      <p>We specify battery storage as part of every solar survey and explain the sizing recommendation with the numbers behind it. The right answer depends on your consumption data, not a standard package.</p>
+    </aside>
+
+    <h2>How to size a battery for your household</h2>
+
+    <p>The oversizing trap is the single most common battery purchasing mistake we see. A larger battery looks like better value per kilowatt-hour on paper. In practice, a battery that is consistently more than half-empty at the end of the day is not earning its keep, and the payback period is longer than the headline figures suggest.</p>
+
+    <p>The right size for your battery is determined by your evening and overnight electricity demand, not your solar generation capacity. The battery's job is to cover your household's consumption from the point the solar stops generating through to the point it starts again the next morning. That window is your sizing target.</p>
+
+    <aside class="callout">
+      <strong>A simple sizing guide</strong>
+      <p>A household using 8 to 12 kWh per day in total, with typical evening and overnight consumption of around 4 to 6 kWh, is well matched to a 5kWh battery. A household using 12 to 18 kWh per day, with heavier evening use or an electric vehicle charging overnight, is better suited to a 10kWh battery. A 10kWh battery on a household averaging 3 to 4 kWh of evening consumption will spend most nights partially full, reducing its effective contribution and extending payback. These are starting points. The right sizing for your household comes from reviewing your actual consumption data, not estimating from bedroom count.</p>
+    </aside>
+
+    <p>In summer, your battery will fill quickly from solar and may still be partially full at the start of the following day. The constraint is not capacity. It is the rate at which you can discharge. In winter, your battery will take longer to fill from reduced solar generation and may also charge partially from the grid on a time-of-use tariff overnight. The battery earns its keep most consistently during the shoulder seasons: spring and autumn days with reasonable generation but cooler evenings driving domestic consumption.</p>
+
+    <p>One practical point on chemistry: most batteries installed in the UK in 2024 and 2025 use lithium iron phosphate (LFP) rather than the older lithium nickel manganese cobalt (NMC) chemistry. LFP batteries have longer cycle lives, typically 4,000 to 6,000 full charge cycles, which translates to 11 to 16 years of daily cycling. They are also thermally more stable. Most manufacturers offer a 10-year warranty to at least 70% of original capacity. If you are being quoted a battery without information on its chemistry and cycle life, ask.</p>
+
+    <h2>Smart tariffs: the bigger opportunity most households miss</h2>
+
+    <p>The self-consumption saving is the baseline case for battery storage. The smart tariff case is substantially stronger and is the reason payback periods on the best-case scenarios have shortened considerably.</p>
+
+    <p>A time-of-use tariff such as Octopus Go or Octopus Intelligent charges a low overnight rate, currently around 7 to 9p per kilowatt-hour, for a set window each night, typically between midnight and five in the morning. During this window, a smart hybrid inverter can charge the battery from the grid. The stored electricity is then discharged during standard-rate hours, saving the difference between the cheap overnight rate and the standard rate of around 24p. Each kilowatt-hour shifted this way saves around 15 to 17p, on top of whatever the battery also does during the day with solar surplus.</p>
+
+    <p>For a household with a 10kWh battery that can charge fully overnight at 7p and fully discharge during the day at 24p, the daily arithmetic is roughly £1.70 in savings from grid arbitrage alone, before the solar contribution. Over a year that is over £600. The payback on the battery investment shortens from 12 to 15 years to around 7 to 8 years in this scenario.</p>
+
+    <p>The catch: smart tariffs require a smart meter and a compatible inverter and battery combination. Not all inverters integrate cleanly with all tariffs. This is an installation specification question, not just a battery question, and it is one we address at survey stage rather than after the system has been designed.</p>
+
+    <p>One note of caution on projections: smart tariff rates and structures change. The economics above are based on current tariff structures in 2026. The direction of travel, as more renewable generation creates wider overnight price differentials, favours time-shifting households. But we recommend understanding the base case without a smart tariff first, and treating the smart tariff saving as an additional benefit rather than a necessary condition for the investment to make sense.</p>
+
+    <h2>When we do not recommend adding a battery from day one</h2>
+
+    <p>Not every household benefits equally from battery storage, and we do not recommend it where the case is weak. There are three scenarios where we typically say wait.</p>
+
+    <p>The first is households with a low evening consumption profile. If your household consistently goes to bed early and has low appliance use after the panels stop generating, the battery will cycle at shallow depth each night and take longer to earn its cost back. A household using 2 to 3 kWh of electricity between sunset and midnight does not need a 10kWh battery. It may not need a battery at all at this stage of its solar use. We can review this if an electric vehicle or other high evening load is added later.</p>
+
+    <p>The second is where budget is constrained and the solar system itself represents a stretch. Solar panels have a shorter payback period than solar with battery on a flat-rate tariff. If you are choosing between a well-specified solar system without a battery and a compromised solar system with a battery, take the solar first. The battery can be added later under the same 0% VAT regime, assuming it is installed before 31 March 2027, and under the normal VAT treatment thereafter.</p>
+
+    <p>The third is where the property situation makes the case weaker: a household planning to sell within three to five years, or with an unusually low electricity tariff, or with shading that limits solar generation to a level that would leave the battery only partially filling each day.</p>
+
+    <p>We have been doing this long enough to know that an oversized battery fitted to the wrong household is a source of disappointment. The survey is where these conversations happen, and the recommendation that comes out of it reflects the specific property and the specific household, not a standard package.</p>
+
+    <aside class="callout">
+      <p>We carry out a full survey before recommending any system configuration. <a href="#" class="btn">Get in touch to arrange a survey →</a></p>
+    </aside>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <h3>Is battery storage worth adding to an existing solar system?</h3>
+        <p>Usually yes, particularly if your system was installed without a battery and you are currently exporting a significant proportion of your generation. The economics depend on your evening consumption pattern, your tariff, and the cost of the retrofit battery. A retrofit carries a 10 to 20% cost premium over a day-one installation due to the separate mobilisation cost. The VAT position is currently the same: battery storage, including retrofits to existing solar systems, carries 0% VAT until 31 March 2027. A diagnostic check on your system's performance data gives the clearest picture of how much your battery would actually save before you commit.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>What size solar battery do I need for a three-bedroom house?</h3>
+        <p>Bedroom count is a poor proxy for battery sizing. What matters is your evening and overnight electricity consumption. For most three-bedroom houses with typical usage, a 5kWh battery is a reasonable starting point. If the household runs high-consumption appliances in the evening, has an electric vehicle, or the occupants are home during the day, a 10kWh battery may be justified. Oversizing a battery relative to your evening consumption extends your payback period without improving your daily self-consumption meaningfully. The right size comes from reviewing your actual smart meter consumption data across the year, not from a rule of thumb.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Can a solar battery charge from the grid overnight?</h3>
+        <p>Yes. This is possible if the system uses a hybrid inverter that supports bidirectional grid charging and you are on a time-of-use tariff with a defined off-peak window. On a tariff such as Octopus Go, the battery can charge at the overnight rate of around 7 to 9p per kilowatt-hour and discharge during standard-rate hours at around 24p. This grid arbitrage is independent of the solar contribution and earns a saving on cloudy days in winter when solar generation is low. Not all inverters support grid charging. This needs to be confirmed at specification stage before the system is installed.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>How long does a solar battery last?</h3>
+        <p>Most residential batteries installed in the UK in 2024 and 2025 use lithium iron phosphate (LFP) chemistry, which is rated for 4,000 to 6,000 full charge cycles. Cycling once per day, a 6,000-cycle battery lasts over 16 years. Most manufacturers offer a 10-year warranty guaranteeing at least 70% of original capacity. In practice, batteries that are not cycled to full depth every day, which is common in summer when solar generation partially fills the battery each afternoon, tend to last longer than their cycle rating implies. The inverter may have a shorter expected lifespan than the battery itself and should be considered as part of the whole-system cost.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Does adding a battery improve my solar panels' EPC rating?</h3>
+        <p>Yes, in most cases. Battery storage improves the home's self-consumption of renewable energy, which is captured in the energy efficiency assessment used for Energy Performance Certificates. A higher EPC rating is increasingly relevant for homeowners planning to rent the property, as minimum EPC thresholds for rental properties are expected to rise. It is also relevant for resale, as buyers increasingly factor in energy efficiency ratings. The extent of the EPC improvement depends on the assessor's methodology and the specific battery and solar configuration.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Is there any VAT relief on solar battery storage?</h3>
+        <p>Yes. Since 1 February 2024, electrical battery storage installed in residential properties carries a 0% VAT rate under HMRC's energy-saving materials relief. This applies whether the battery is installed alongside a new solar system or retrofitted to an existing one. The 0% rate applies until 31 March 2027, after which battery storage reverts to the reduced rate of 5%. A 5kWh battery system costing around £4,000 installed saves approximately £200 in VAT compared to the 5% rate. The VAT saving is automatically applied by any MCS-certified installer.</p>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container-wide">
+    <p>&copy; Content For Growth &middot; <a href="https://www.contentforgrowth.co.uk/">contentforgrowth.co.uk</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
