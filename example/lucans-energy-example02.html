@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PREVIEW: Underfloor Heating with a Heat Pump — Lucans Energy</title>
+  <style>
+/*
+  ============================================================
+  Lucans Energy — CFG Article Stylesheet
+  lucans-energy-article-global.css
+
+  Namespace prefix: cfg-lucans-energy
+  Input mode: Path A — operator-supplied tokens (extracted from uploaded homepage HTML, Kadence global palette)
+  Source: https://lucans.uk/ (homepage HTML, Kadence theme global palette)
+  Date: 2026-06-08
+
+  Tokens supplied directly (from Kadence --global-palette):
+  - primary   #f7e01e (palette1 / button background, brand yellow)
+  - secondary #e1ca0f (palette2)
+  - dark      #111111 (palette3, headings/strong)
+  - text      #4f4f4f (palette4, body)
+  - background#ffffff (palette9)
+  - accent    #f7e01e (brand yellow for decorative rules; the Kadence highlight default #1e75f7 was dropped as not a real brand colour)
+  - heading-font Montserrat | body-font Cabin
+
+  Tokens derived:
+  - muted #959595 (text lightened ~40%)
+  - surface #fffdf2 (background tinted ~4% toward primary)
+  - surface-alt #f7f5ec (subtle warm-neutral for alternating rows)
+  - btn-text #111111 (white FAILS WCAG AA on yellow primary; dark passes ~14:1)
+  - btn-hover #d2be1a (primary darkened ~15%)
+  - border #dcdcdc (text lightened ~80%)
+
+  Colour logic (flagged — primary is a low-contrast yellow, never used as a foreground/text colour):
+  - Links: dark text (#111111) with a thick yellow underline; on hover the yellow fills behind the text as a highlight. Keeps the brand yellow in play without ever failing contrast.
+  - --color-accent is the brand yellow (#f7e01e): used only for decorative rules and borders (H2 underline, callout/answer-callout left border, card top border), never as text.
+  - H3 subheadings, callout labels and table headers all use the dark colour for legibility. Table header row: dark background, white text.
+  - Buttons keep the exact live-site pattern: yellow background, near-black text (WCAG-safe).
+  - No blue is used. The earlier Kadence highlight blue (#1e75f7) was a theme default, not a real Lucans brand colour.
+
+  Fonts: Montserrat (heading) + Cabin (body) via Google Fonts
+  ============================================================
+*/
+
+/* ============================================================
+   GOOGLE FONTS IMPORT
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Montserrat:wght@400;600;700&display=swap');
+
+/* ============================================================
+   BRAND TOKENS — scoped to the namespace class
+   ============================================================ */
+.cfg-lucans-energy-article {
+  /* Colours */
+  --color-primary:      #f7e01e;
+  --color-secondary:    #e1ca0f;
+  --color-accent:       #f7e01e;
+  --color-text:         #4f4f4f;
+  --color-muted:        #959595;
+  --color-bg:           #ffffff;
+  --color-surface:      #fffdf2;
+  --color-surface-alt:  #f7f5ec;
+  --color-dark:         #111111;
+  --color-link:         #111111;
+  --color-link-hover:   #111111;
+  --color-btn-bg:       #f7e01e;
+  --color-btn-text:     #111111;
+  --color-btn-hover:    #d2be1a;
+  --color-border:       #dcdcdc;
+
+  /* Fonts */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body:    'Cabin', sans-serif;
+}
+
+
+/* ============================================================
+   BASE ARTICLE LAYOUT
+   ============================================================ */
+.cfg-lucans-energy-article {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  background-color: var(--color-bg);
+}
+
+.cfg-lucans-energy-article p {
+  margin: 0 0 20px;
+}
+
+.cfg-lucans-energy-article ul,
+.cfg-lucans-energy-article ol {
+  margin: 0 0 20px;
+  padding-left: 24px;
+}
+
+.cfg-lucans-energy-article li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+.cfg-lucans-energy-article h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin: 0 0 20px;
+  font-weight: 700;
+}
+
+.cfg-lucans-energy-article h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2.5vw, 28px);
+  line-height: 1.3;
+  color: var(--color-dark);
+  margin: 48px 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--color-accent);
+  font-weight: 700;
+}
+
+.cfg-lucans-energy-article h3 {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.8vw, 18px);
+  font-weight: 600;
+  color: var(--color-dark);
+  margin: 32px 0 8px;
+  line-height: 1.4;
+}
+
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+.cfg-lucans-energy-article a {
+  color: var(--color-link);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.cfg-lucans-energy-article a:hover {
+  color: var(--color-dark);
+  background-color: var(--color-primary);
+  text-decoration: none;
+}
+
+
+/* ============================================================
+   ANSWER CALLOUT
+   The opening direct-answer box — primary AEO extraction target
+   ============================================================ */
+.cfg-lucans-energy-answer-callout {
+  background-color: var(--color-surface);
+  border-left: 5px solid var(--color-accent);
+  padding: 20px 24px;
+  margin: 0 0 36px;
+  border-radius: 0 6px 6px 0;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.cfg-lucans-energy-answer-callout p {
+  margin: 0;
+}
+
+
+/* ============================================================
+   IN-BODY CALLOUT BOXES
+   ============================================================ */
+.cfg-lucans-energy-callout {
+  background-color: var(--color-surface);
+  border-left: 4px solid var(--color-primary);
+  padding: 16px 20px;
+  margin: 28px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.cfg-lucans-energy-callout-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+}
+
+.cfg-lucans-energy-callout p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.cfg-lucans-energy-callout p + p {
+  margin-top: 12px;
+}
+
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+.cfg-lucans-energy-table-wrap {
+  overflow-x: auto;
+  margin: 28px 0 36px;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.cfg-lucans-energy-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  min-width: 480px;
+}
+
+.cfg-lucans-energy-table-wrap th {
+  background-color: var(--color-dark);
+  color: #ffffff;
+  text-align: left;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.cfg-lucans-energy-table-wrap td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.cfg-lucans-energy-table-wrap tr:nth-child(even) td {
+  background-color: var(--color-surface-alt);
+}
+
+.cfg-lucans-energy-table-wrap tr:last-child td {
+  border-bottom: none;
+}
+
+.cfg-lucans-energy-table-wrap tr:hover td {
+  background-color: var(--color-surface);
+}
+
+
+/* ============================================================
+   COMPARISON / FINISH GRID
+   ============================================================ */
+.cfg-lucans-energy-finish-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 28px 0 36px;
+}
+
+.cfg-lucans-energy-finish-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-accent);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.cfg-lucans-energy-finish-card h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: var(--color-dark);
+}
+
+.cfg-lucans-energy-finish-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+
+/* ============================================================
+   CTA BLOCK
+   ============================================================ */
+.cfg-lucans-energy-cta-block {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 32px;
+  margin: 48px 0;
+  text-align: center;
+}
+
+.cfg-lucans-energy-cta-block h2 {
+  border-bottom: none;
+  margin: 0 0 12px;
+  padding: 0;
+  font-size: clamp(20px, 2.5vw, 26px);
+  color: var(--color-dark);
+}
+
+.cfg-lucans-energy-cta-block p {
+  color: var(--color-muted);
+  font-size: 16px;
+  margin: 0 0 24px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cfg-lucans-energy-cta-button {
+  display: inline-block;
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn-text, #ffffff);
+  padding: 14px 32px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cfg-lucans-energy-cta-button:link,
+.cfg-lucans-energy-cta-button:visited,
+.cfg-lucans-energy-cta-button:active {
+  color: var(--color-btn-text, #ffffff);
+  text-decoration: none;
+}
+
+.cfg-lucans-energy-cta-button:hover {
+  background-color: var(--color-btn-hover);
+  color: var(--color-btn-text, #ffffff);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   FAQ SECTION
+   ============================================================ */
+#faq {
+  margin-top: 56px;
+}
+
+.cfg-lucans-energy-faq-item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 24px 0;
+}
+
+.cfg-lucans-energy-faq-item:last-child {
+  border-bottom: none;
+}
+
+.cfg-lucans-energy-faq-item h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-dark);
+  line-height: 1.4;
+}
+
+.cfg-lucans-energy-faq-item p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+  .cfg-lucans-energy-article {
+    padding: 32px 16px;
+    font-size: 16px;
+  }
+
+  .cfg-lucans-energy-article h1 {
+    font-size: 28px;
+  }
+
+  .cfg-lucans-energy-article h2 {
+    font-size: 22px;
+    margin-top: 40px;
+  }
+
+  .cfg-lucans-energy-finish-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cfg-lucans-energy-cta-block {
+    padding: 24px 20px;
+  }
+
+  .cfg-lucans-energy-cta-button {
+    display: block;
+    text-align: center;
+    padding: 14px 20px;
+  }
+
+  .cfg-lucans-energy-table-wrap {
+    margin-left: -16px;
+    margin-right: -16px;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .cfg-lucans-energy-article {
+    font-size: 15px;
+  }
+
+  .cfg-lucans-energy-article h1 {
+    font-size: 24px;
+  }
+
+  .cfg-lucans-energy-article h2 {
+    font-size: 20px;
+  }
+
+  .cfg-lucans-energy-answer-callout {
+    padding: 16px 18px;
+    font-size: 16px;
+  }
+}
+
+/* === PREVIEW CHROME === */
+body { margin: 0; padding: 0; background: #ffffff; }
+.cfg-preview-banner { background: #1A1A1A; color: #ffffff; text-align: center; padding: 10px 16px; font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 0.3px; }
+.cfg-preview-banner strong { color: #ffffff; font-weight: 700; }
+.cfg-preview-meta { max-width: 780px; margin: 60px auto 0; padding: 24px 24px 48px; border-top: 1px solid #E0E0E0; font-family: Arial, sans-serif; font-size: 13px; color: #777777; line-height: 1.6; }
+.cfg-preview-meta h3 { font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; color: #444444; margin: 0 0 12px; text-transform: none; border: none; padding: 0; background: none; }
+.cfg-preview-meta p { margin: 6px 0; color: #777777; }
+.cfg-preview-meta strong { color: #444444; }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Place",
+      "@id": "https://lucans.uk/#place",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "54 Ilfracombe Gardens,",
+        "addressLocality": "Whitley Bay",
+        "addressRegion": "Tyne and Wear",
+        "postalCode": "NE26 3SH",
+        "addressCountry": "United Kingdom"
+      }
+    },
+    {
+      "@type": ["HVACBusiness", "Organization"],
+      "@id": "https://lucans.uk/#organization",
+      "name": "Lucans Ltd",
+      "url": "https://lucans.uk",
+      "email": "hello@lucans.uk",
+      "telephone": "0191 359 2053",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "54 Ilfracombe Gardens,",
+        "addressLocality": "Whitley Bay",
+        "addressRegion": "Tyne and Wear",
+        "postalCode": "NE26 3SH",
+        "addressCountry": "United Kingdom"
+      },
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://lucans.uk/#logo",
+        "url": "https://lucans.uk/wp-content/uploads/2024/01/cropped-lucans-logo-340x156-1.jpg",
+        "contentUrl": "https://lucans.uk/wp-content/uploads/2024/01/cropped-lucans-logo-340x156-1.jpg",
+        "caption": "Lucans Ltd",
+        "inLanguage": "en-GB",
+        "width": "340",
+        "height": "136"
+      },
+      "openingHours": ["Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"],
+      "legalName": "Lucans Ltd",
+      "location": {"@id": "https://lucans.uk/#place"},
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "North East England"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "MCS Certified Installer",
+          "credentialCategory": "Professional Certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Microgeneration Certification Scheme",
+            "url": "https://mcscertified.com"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "TrustMark Registered",
+          "credentialCategory": "Government-Endorsed Quality Scheme",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "TrustMark",
+            "url": "https://www.trustmark.org.uk"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lucans.uk/#website",
+      "url": "https://lucans.uk",
+      "name": "Lucans Ltd",
+      "alternateName": "LES",
+      "publisher": {"@id": "https://lucans.uk/#organization"},
+      "inLanguage": "en-GB",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://lucans.uk/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://lucans.uk/guides/underfloor-heating-with-heat-pump/#webpage",
+      "url": "https://lucans.uk/guides/underfloor-heating-with-heat-pump/",
+      "name": "Underfloor Heating with a Heat Pump: How the Two Work Together",
+      "isPartOf": {"@id": "https://lucans.uk/#website"},
+      "inLanguage": "en-GB",
+      "breadcrumb": {"@id": "https://lucans.uk/guides/underfloor-heating-with-heat-pump/#breadcrumb"}
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://lucans.uk/guides/underfloor-heating-with-heat-pump/#article",
+      "headline": "Underfloor Heating with a Heat Pump: How the Two Work Together",
+      "name": "Underfloor Heating with a Heat Pump: How the Two Work Together",
+      "description": "Why underfloor heating and heat pumps work together, the flow temperature behind the efficiency, and why the heat-loss calculation matters.",
+      "abstract": "This article explains why wet underfloor heating and heat pumps are a natural pairing, and what determines whether that pairing delivers the efficiency it promises. Both technologies operate most effectively at low water temperatures: a modern air-to-water heat pump achieves a seasonal coefficient of performance of 4.0 or above at a flow temperature of 35 degrees Celsius, falling to around 3.0 at 55 degrees. Wet underfloor heating, which uses the entire floor surface as a heat emitter, typically operates at 30 to 40 degrees — directly in the heat pump's most efficient range. The article explains how the room-by-room heat-loss calculation, mandatory under MCS certification requirements for any installation claiming the Boiler Upgrade Scheme grant, is the design tool that connects the two systems: it determines the room-by-room heat demand, the target flow temperature, and from those figures the underfloor pipe spacing and loop lengths. A common failure mode is identified — two separate contractors specifying the floor and the heat pump independently, resulting in a system that heats the home at significantly reduced efficiency because the floor was never designed for low-temperature operation. The article covers mixed systems with underfloor heating downstairs and radiators upstairs, retrofit options for North East period properties including low-profile overlay panels and suspended-floor spreader-plate systems, and how weather compensation at commissioning governs seasonal performance. The Boiler Upgrade Scheme grant of up to £7,500 is explained in relation to the combined install. The article is written for North East England homeowners evaluating a combined heat pump and underfloor heating installation, and addresses the question of whether retrofit underfloor heating is genuinely worth the disruption in an existing property.",
+      "url": "https://lucans.uk/guides/underfloor-heating-with-heat-pump/",
+      "mainEntityOfPage": {"@id": "https://lucans.uk/guides/underfloor-heating-with-heat-pump/#webpage"},
+      "author": {"@id": "https://lucans.uk/#organization"},
+      "publisher": {"@id": "https://lucans.uk/#organization"},
+      "isPartOf": {"@id": "https://lucans.uk/#website"},
+      "inLanguage": "en-GB",
+      "articleSection": "Whole-system retrofit",
+      "keywords": "underfloor heating with heat pump, heat pump and underfloor heating, underfloor heating with air source heat pump, underfloor heating installation, heat pump flow temperature, MCS certification",
+      "wordCount": 3214,
+      "citation": [
+        "https://mcscertified.com/an-update-to-mcs-031-the-heat-pump-pre-sale-information-and-performance-calculation/",
+        "https://greenheattoolkit.energysavingtrust.org.uk/t/heat-pump-installers-toolkit/heat-pump-system-design/heat-loss-calculations-detailed-guidance/",
+        "https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus"
+      ],
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Heat pump",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Heat_pump",
+            "https://www.wikidata.org/wiki/Q131313"
+          ]
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Underfloor heating",
+          "description": "A heating system that distributes warmth through pipes or cables embedded in or beneath the floor, using the entire floor surface as a heat emitter"
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Boiler Upgrade Scheme",
+          "description": "UK government grant scheme offering up to £7,500 towards the cost of a heat pump installation, administered by Ofgem"
+        },
+        {
+          "@type": "Organization",
+          "name": "Microgeneration Certification Scheme",
+          "alternateName": "MCS",
+          "url": "https://mcscertified.com"
+        },
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Ofgem",
+          "url": "https://www.ofgem.gov.uk/",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Ofgem",
+            "https://www.wikidata.org/wiki/Q3349672"
+          ]
+        },
+        {
+          "@type": "Place",
+          "name": "Tyne and Wear",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Tyne_and_Wear",
+            "https://www.wikidata.org/wiki/Q23080"
+          ]
+        },
+        {
+          "@type": "Place",
+          "name": "North East England",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/North_East_England",
+            "https://www.wikidata.org/wiki/Q14205923"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://lucans.uk/guides/underfloor-heating-with-heat-pump/#faqpage",
+      "isPartOf": {"@id": "https://lucans.uk/guides/underfloor-heating-with-heat-pump/#webpage"},
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does underfloor heating work with both air source and ground source heat pumps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Both types of heat pump produce low-temperature water, typically between 35 and 50 degrees Celsius, which is the ideal operating range for wet underfloor heating. Ground source heat pumps tend to run at even lower flow temperatures because the ground temperature is more stable than outdoor air, which can push the seasonal efficiency figure higher still. The underfloor system design is essentially the same regardless of which heat pump type is used: the heat-loss calculation determines the flow temperature target, and the underfloor pipe layout is sized to meet each room's demand at that temperature."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I have to replace all my radiators if I install underfloor heating downstairs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. A mixed system with underfloor heating on the ground floor and radiators upstairs is a very common arrangement, and it works well when designed correctly. The requirement is that both parts of the system operate at the same target flow temperature. This usually means checking each upstairs radiator to confirm it can deliver enough heat at 45 to 50 degrees Celsius rather than the 65 to 70 degrees your existing boiler used. Some radiators may need upsizing. Others, particularly larger double-panel types, will be adequate. A proper heat-loss calculation and radiator survey tells you exactly which ones before any work is agreed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can underfloor heating be retrofitted into an existing home?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, though the options depend on what is beneath your floors. Homes with solid concrete or screed floors can take low-profile overlay systems that add just 15 to 25 millimetres of floor height, installed on top of the existing floor under tile or engineered wood. Homes with suspended timber floors can use spreader-plate systems fitted between joists, which add no floor height at all. Traditional screeded systems add 80 to 100 millimetres and are most practical when a floor is already being replaced as part of a wider renovation. The right option depends on the floor construction and what work is already planned."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will underfloor heating make a heat pump cheaper to run?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Generally yes, compared to a heat pump running on standard-sized radiators. Underfloor heating operates at lower flow temperatures, typically 30 to 40 degrees Celsius versus 45 to 55 degrees for radiators, and a heat pump produces heat more efficiently at lower temperatures. At a flow temperature of 35 degrees Celsius, a modern air source heat pump typically achieves a seasonal efficiency of 4.0 or above, meaning four units of heat for each unit of electricity. At 55 degrees, that figure typically drops to around 3.0. The actual running cost saving depends on the home's heat demand, the heat pump model, and how well the system is designed and commissioned."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Boiler Upgrade Scheme grant and does it cover underfloor heating?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The standard Boiler Upgrade Scheme grant is £7,500 for eligible air-to-water and ground source heat pumps, applied as an upfront discount on the installer's invoice. The government has also announced a temporary £9,000 grant for eligible off-gas-grid homes and small businesses heated by oil or LPG, running from 21 July 2026 to 31 March 2027, subject to scheme eligibility and current guidance. Full details are on the Boiler Upgrade Scheme page on the Ofgem website, and we will confirm the current grant position at your survey. The grant covers the heat pump system. Underfloor heating installed at the same time is a separate cost the homeowner covers, and the grant applies only to the heat pump portion. A combined project quote can include both, but the invoice will show the heat pump cost and the UFH cost separately. The installation must be carried out by an MCS-certified installer to qualify."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does wet underfloor heating take to heat a room?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An in-screed system typically takes one to two hours to bring a room to temperature from cold. Low-profile overlay systems and suspended-floor spreader-plate systems respond faster, usually 20 to 45 minutes. In practice this rarely matters, because underfloor heating works best when run to maintain a steady temperature rather than switched on and off. The thermal mass of a screeded floor stores heat and releases it slowly, providing consistent warmth even after the heat pump cycles off. This steady-state approach suits heat pump operation well: the pump runs for longer periods at a low, steady output rather than cycling in short bursts as a boiler would."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lucans.uk/guides/underfloor-heating-with-heat-pump/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lucans.uk"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://lucans.uk/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Underfloor Heating with a Heat Pump: How the Two Work Together"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <div class="cfg-preview-banner">PREVIEW — <strong>Lucans Energy</strong> | Underfloor Heating with a Heat Pump: How the Two Work Together | Lane 3: Whole-system retrofit</div>
+<div class="cfg-lucans-energy-article">
+
+<h1>Underfloor Heating with a Heat Pump: How the Two Work Together</h1>
+
+<div class="cfg-lucans-energy-answer-callout">
+<p>Underfloor heating works well with a heat pump because both are designed around low water temperatures. Heat pumps run most efficiently when they do not have to produce very hot water, and wet underfloor heating can warm a room using water at around 30 to 40 degrees Celsius because the whole floor acts as the heat emitter. The real efficiency gain comes when the heat pump, underfloor pipe layout and room-by-room heat-loss calculation are designed together.</p>
+</div>
+
+<p>If you are looking at underfloor heating with a heat pump and someone has told you the combination is a good match, they are right. But the reason matters more than most explanations cover. We see the combination installed badly almost as often as we see it installed well, and the difference is almost always whether the floor and the heat pump were designed as one system, or whether two separate firms turned up on two separate days and bolted them together.</p>
+
+<p>This article explains what actually connects the two technologies: what determines flow temperature, how the floor acts as a heat emitter, and why the heat-loss calculation is the tool that makes the pairing perform. We have installed this combination in homes across Tyne and Wear, Northumberland, and County Durham, and what follows is what we tell people at the survey.</p>
+
+<h2>Why heat pumps run at lower temperatures than a boiler</h2>
+
+<p>A gas boiler burns fuel and generates heat directly. It can produce water at 65 to 80 degrees Celsius and sends it around your radiators in short bursts. A heat pump does something different: it moves heat rather than generating it, drawing warmth from the outdoor air and transferring it into the water that circulates around your home. The efficiency of that process depends on how large a gap there is between the outdoor air and the water temperature it needs to produce.</p>
+
+<p>The bigger the gap, the harder the pump works, and the more electricity it uses. This is why flow temperature matters so much. It is not just a technical setting. It is the single variable that most determines what your heat pump costs to run. We measure that efficiency as COP, the coefficient of performance. A COP of 4.0 means four units of heat produced for each unit of electricity used. The same heat pump at a higher flow temperature might deliver only 3.0. Across a full heating season, the average is called the seasonal performance factor, or SPF.</p>
+
+<p>The table below shows how seasonal efficiency typically changes with flow temperature, based on the <a href="https://mcscertified.com/an-update-to-mcs-031-the-heat-pump-pre-sale-information-and-performance-calculation/" target="_blank" rel="noopener noreferrer">MCS performance estimate framework</a>. Under current MCS requirements, installers must use this framework to estimate heat pump performance for any installation claiming the Boiler Upgrade Scheme grant.</p>
+
+<div class="cfg-lucans-energy-table-wrap">
+<table>
+<thead>
+<tr>
+<th>Flow temperature</th>
+<th>Typical seasonal performance</th>
+<th>Emitter type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>35 degrees Celsius</td>
+<td>4.0 or above</td>
+<td>Underfloor heating</td>
+</tr>
+<tr>
+<td>45 degrees Celsius</td>
+<td>3.5 to 3.8</td>
+<td>UFH or correctly sized low-temperature radiators</td>
+</tr>
+<tr>
+<td>55 degrees Celsius</td>
+<td>2.8 to 3.2</td>
+<td>Standard-sized radiators</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>Source: Seasonal performance figures are indicative, drawn from the MCS performance estimate framework. Actual performance depends on heat pump model, system design, and outdoor temperature profile.</p>
+
+<div class="cfg-lucans-energy-callout">
+<div class="cfg-lucans-energy-callout-label">What seasonal efficiency means for your bills</div>
+<p>A heat pump with a seasonal performance factor of 4.0 produces four units of heat for each unit of electricity. At 3.0, the same electricity produces only three units. For a home needing 12,000 kilowatt hours of heat per year, that gap is roughly 1,000 kilowatt hours of extra electricity, every year. The emitter system is not a passive component in this. The flow temperature it requires is what drives your running cost. Get it right at the design stage and you save that money for the life of the system.</p>
+</div>
+
+<h2>How underfloor heating uses the floor as a heat emitter</h2>
+
+<p>A standard wall radiator may only take up around half a square metre of visible wall space. Delivering enough heat to a room at the lower temperatures a heat pump produces means either making radiators significantly larger, or finding a much bigger emitter surface. Underfloor heating does the latter: the pipes run across the entire floor, and the floor itself becomes the heat emitter. A 25 square metre living room becomes a 25 square metre radiator, pushing heat upward across its whole surface at 30 to 40 degrees Celsius.</p>
+
+<p>That large surface area is what changes the physics. Because you are spreading the same heat load across so much more surface, you can transfer it to the room at a much lower water temperature. Lower water temperature is exactly what a heat pump produces most efficiently. The match is not a coincidence. It is the operating logic of both systems pointing in the same direction.</p>
+
+<p>The MCS Heat Emitter Guide places well-designed underfloor heating in the lower half of the four-star performance window, around 35 to 40 degrees Celsius. Correctly sized heat pump radiators sit in the upper half, at 45 to 50 degrees. Both emitter types can work well with a heat pump. We install both, depending on what the home calls for. What decides it is the heat-loss calculation.</p>
+
+<h2>The heat-loss calculation: what it actually determines</h2>
+
+<p>Every heat pump installation claiming the Boiler Upgrade Scheme grant must include a room-by-room heat-loss calculation to the BS EN 12831-1:2017 standard. This is an MCS requirement, not optional paperwork. But more than being a compliance step, it is the calculation that makes the system work. It tells us room by room how much heat your home needs to stay warm on the coldest day of the year.</p>
+
+<p>The calculation goes through the fabric of your building: what your walls are made of and how well they hold heat, how your windows perform, where the floor loses heat downward, how much air changes in each room. For each space it produces a figure in watts. That figure tells us what the emitter in that room needs to deliver. In the North East, the design outside temperature we calculate against is colder than it would be in the South, which is directly relevant to how we size both the heat pump and the underfloor circuits.</p>
+
+<p>Once those room-by-room figures are in, the calculation tells us the flow temperature the system needs to reach its design output. If underfloor heating is part of the install, the pipe spacing, loop lengths, and circuit layout are all derived from that same number. Change the target flow temperature and the whole emitter design changes with it. This is why we do not design the heat pump and the underfloor heating separately. <a href="https://greenheattoolkit.energysavingtrust.org.uk/t/heat-pump-installers-toolkit/heat-pump-system-design/heat-loss-calculations-detailed-guidance/" target="_blank" rel="noopener noreferrer">The Energy Saving Trust's guidance on heat pump system design</a> puts it plainly: an accurate room-by-room heat-loss calculation is fundamental to ensuring the pump can provide adequate heating at low flow temperatures. We agree. The trap is when it is skipped.</p>
+
+<p>The failure mode we see most often is two separate contractors, two separate jobs. A plumber fits the underfloor heating for a condensing boiler, sizing the pipes for a flow temperature of 55 degrees. A heat pump installer arrives later, fits the unit, and sets the weather compensation curve to the same 55 degrees. The system heats the house, but the heat pump never runs at the efficiency the brochure promised, because the floor was never designed to work at 35 to 40 degrees. The homeowner paid for the combination and got the running costs of radiators. We design both from the same set of calculations because there is only one correct answer, and it only exists if you do the maths once across the whole system.</p>
+
+<div class="cfg-lucans-energy-callout">
+<div class="cfg-lucans-energy-callout-label">What "designed around your home" actually means</div>
+<p>The heat-loss calculation is not a rule of thumb applied to your square footage. It is a room-by-room measurement of how heat escapes from your specific walls, floor, ceiling, and windows at the design outdoor temperature for your location. In the North East, that temperature is colder than the national average, which affects the size of heat pump we specify. That one calculation determines the flow temperature the whole system targets, which determines how the underfloor pipes are spaced and sized, and what output the heat pump needs to deliver. Everything connects back to those figures.</p>
+</div>
+
+<h2>Mixed systems: underfloor downstairs, radiators upstairs</h2>
+
+<p>Not every home needs underfloor heating throughout, and we would not tell you it does. The most practical arrangement for most North East retrofits is wet underfloor heating on the ground floor and radiators upstairs. It works well when it is designed that way from the start.</p>
+
+<p>The ground floor makes the strongest case. Solid or part-solid floors are easier to work with, the living spaces where comfort matters most are usually there, and the floor area is largest. Upper floors are often suspended timber, rooms are smaller, and usage is more intermittent. It is possible to install underfloor heating between joists upstairs, but lifting boards, fitting spreader plates, and reinstatement is significant disruption for a benefit that is often modest in bedrooms you use for eight hours out of twenty-four.</p>
+
+<p>A mixed system works when both emitter types are designed around a compatible heat pump flow temperature, with the radiator circuit and underfloor manifold specified together. What you cannot do is run the upstairs radiators at 70 degrees while the floor runs at 35. Under the current MCS performance estimate framework, installers are required to flag installations where existing radiators may be undersized for heat pump operation. We check every radiator in the house against its required output at the target flow temperature before we quote. Some will need upsizing. Others, particularly larger double-panel types, will be fine as they are. That survey is what tells you which, before any money changes hands.</p>
+
+<p>Where the radiators need a slightly higher system flow temperature, the underfloor manifold can be controlled separately, but the heat pump still has to produce the higher temperature. That narrows the efficiency gain compared with an all-underfloor system. The practical case for a mixed approach in an existing North East home often still outweighs that difference, and we will give you the specific numbers at the survey so you can decide whether the approach makes sense for your home.</p>
+
+<h2>Retrofit underfloor heating in North East homes</h2>
+
+<p>The objection we hear most often is the floor build-up. A traditional screeded system adds 80 to 100 millimetres above the existing floor. That means raising every door threshold, relaying all the skirting boards, and in some properties losing ceiling height you cannot afford. In the Victorian terraces, Tyneside flats, and stone-built rural homes that make up a large part of the North East housing stock, that has historically ruled out the option entirely.</p>
+
+<p>Modern retrofit systems have changed what is possible. Low-profile overlay panels are formed insulation boards with pre-routed channels for the pipework. They sit directly on top of an existing solid floor and bring the total depth to 15 to 25 millimetres. Tile, engineered wood, and compatible laminate go straight over the top. If you are already replacing a ground floor finish as part of a kitchen or bathroom renovation, the additional cost of the underfloor system under the new floor is substantially lower than returning to do it as a standalone job later.</p>
+
+<p>For homes with suspended timber floors over a ventilated void, we can fit pipes and aluminium spreader plates between the joists. This adds no floor height at all and leaves the floorboards looking exactly as they did. It works well in Tyneside flats and Victorian terraces where the void is accessible from above or below. Response time is faster than a screeded system because there is less thermal mass warming up.</p>
+
+<p>Where a major renovation is already under way, liquid screed is our preferred option where the floor depth allows it. Anhydrite screed can often be laid thinner than traditional sand and cement, typically at 45 to 55 millimetres, and distributes heat evenly across the floor surface. That even heat distribution pairs well with weather-compensated control: the screed releases warmth steadily rather than in peaks. If a floor is coming up for another reason, the incremental cost of laying underfloor pipes at the same time is a fraction of what it would be as a dedicated job.</p>
+
+<p>We will tell you honestly if retrofit UFH is not the right answer for your home. If your existing floor is solid and intact, your radiators are already correctly sized for low-temperature operation, and there is no renovation planned, the disruption of lifting the floor outweighs what the underfloor system gains. Saving money on running costs is the goal, and sometimes the honest answer is that the cheapest way to reach it does not involve underfloor heating at all.</p>
+
+<div class="cfg-lucans-energy-cta-block">
+<h2>Thinking about underfloor heating and a heat pump together?</h2>
+<p>We do the heat-loss calculation room by room and give you a fixed written price before any work begins. If underfloor heating is the right answer for your home, we will tell you why and how. If it is not, we will tell you that too.</p>
+<a class="cfg-lucans-energy-cta-button" href="https://lucans.uk/contact-us/">Book your free survey</a>
+</div>
+
+<h2>What a well-designed pairing looks like in practice</h2>
+
+<p>A well-designed combined system starts at the survey and does not end until commissioning. The heat-loss calculation gives us the room-by-room heat demand and the target flow temperature. From those figures we design the underfloor circuit layout: pipe spacing, loop lengths, zone boundaries, manifold sizing. We specify the heat pump to deliver that flow temperature reliably at the design outside temperature for this part of the country. The North East winter is exactly where a properly designed system earns its keep.</p>
+
+<p>Weather compensation is the control layer that makes the whole thing perform across a season. A weather-compensated heat pump does not run at a fixed temperature. It adjusts: lower flow temperature on mild days, higher when it is cold. This is where a significant part of the annual efficiency gain comes from, because the pump spends most of its operating hours in mild conditions and that is when the low flow temperature pays. The compensation curve is set at commissioning based on the flow temperature we calculated at the design stage. Too high and the pump runs warmer than necessary. Too low and rooms do not reach temperature on the coldest days.</p>
+
+<p>The decision rule for any buyer is this: if a quote for a heat pump does not include a home survey and an emitter assessment, it is a price for a unit, not a price for a working heating system. <a href="https://lucans.uk/air-source-heat-pumps/">Our air source heat pump installation in the North East</a> begins with the heat-loss calculation, because the pump size, the emitter choice, and the flow temperature target are the same question looked at from three angles. The fixed written price we give you covers all three. Nothing changes without being explained, agreed and put in writing.</p>
+
+<div class="cfg-lucans-energy-cta-block">
+<h2>Ready to see what underfloor heating and a heat pump would cost for your home?</h2>
+<p>We design the two as one system and give you a fixed written price before any work starts. No separate contractors, no ambiguity about what flow temperature your floor was designed for. You can also find out more about <a href="https://lucans.uk/underfloor-heating/">our underfloor heating installation</a> and what the work involves.</p>
+<a class="cfg-lucans-energy-cta-button" href="https://lucans.uk/contact-us/">Book your free survey</a>
+</div>
+
+<section id="faq">
+<h2>Frequently Asked Questions</h2>
+
+<div class="cfg-lucans-energy-faq-item">
+<h3>Does underfloor heating work with both air source and ground source heat pumps?</h3>
+<p>Yes. Both types of heat pump produce low-temperature water, typically between 35 and 50 degrees Celsius, which is the ideal operating range for wet underfloor heating. Ground source heat pumps tend to run at even lower flow temperatures because the ground temperature is more stable than outdoor air, which can push the seasonal efficiency figure higher still. The underfloor system design is essentially the same regardless of which heat pump type is used: the heat-loss calculation determines the flow temperature target, and the underfloor pipe layout is sized to meet each room's demand at that temperature.</p>
+</div>
+
+<div class="cfg-lucans-energy-faq-item">
+<h3>Do I have to replace all my radiators if I install underfloor heating downstairs?</h3>
+<p>No. A mixed system with underfloor heating on the ground floor and radiators upstairs is a very common arrangement, and it works well when designed correctly. The requirement is that both parts of the system operate at the same target flow temperature. This usually means checking each upstairs radiator to confirm it can deliver enough heat at 45 to 50 degrees Celsius rather than the 65 to 70 degrees your existing boiler used. Some radiators may need upsizing. Others, particularly larger double-panel types, will be adequate. A proper heat-loss calculation and radiator survey tells you exactly which ones before any work is agreed.</p>
+</div>
+
+<div class="cfg-lucans-energy-faq-item">
+<h3>Can underfloor heating be retrofitted into an existing home?</h3>
+<p>Yes, though the options depend on what is beneath your floors. Homes with solid concrete or screed floors can take low-profile overlay systems that add just 15 to 25 millimetres of floor height, installed on top of the existing floor under tile or engineered wood. Homes with suspended timber floors can use spreader-plate systems fitted between joists, which add no floor height at all. Traditional screeded systems add 80 to 100 millimetres and are most practical when a floor is already being replaced as part of a wider renovation. The right option depends on the floor construction and what work is already planned.</p>
+</div>
+
+<div class="cfg-lucans-energy-faq-item">
+<h3>Will underfloor heating make a heat pump cheaper to run?</h3>
+<p>Generally yes, compared to a heat pump running on standard-sized radiators. Underfloor heating operates at lower flow temperatures, typically 30 to 40 degrees Celsius versus 45 to 55 degrees for radiators, and a heat pump produces heat more efficiently at lower temperatures. At a flow temperature of 35 degrees Celsius, a modern air source heat pump typically achieves a seasonal performance factor of 4.0 or above, meaning four units of heat for each unit of electricity. At 55 degrees, that figure typically drops to around 3.0. The actual running cost saving depends on the home's heat demand, the heat pump model, and how well the system is designed and commissioned.</p>
+</div>
+
+<div class="cfg-lucans-energy-faq-item">
+<h3>What is the Boiler Upgrade Scheme grant and does it cover underfloor heating?</h3>
+<p>The standard Boiler Upgrade Scheme grant is £7,500 for eligible air-to-water and ground source heat pumps, applied as an upfront discount on the installer's invoice. The government has also announced a temporary £9,000 grant for eligible off-gas-grid homes and small businesses heated by oil or LPG, running from 21 July 2026 to 31 March 2027, subject to scheme eligibility and current guidance. Full details are on <a href="https://www.ofgem.gov.uk/environmental-and-social-schemes/boiler-upgrade-scheme-bus" target="_blank" rel="noopener noreferrer">the Boiler Upgrade Scheme page on the Ofgem website</a>, and we will confirm the current grant position at your survey. The grant covers the heat pump system. Underfloor heating installed at the same time is a separate cost the homeowner covers, and the grant applies only to the heat pump portion. A combined project quote can include both, but the invoice will show the heat pump cost and the UFH cost separately. The installation must be carried out by an MCS-certified installer to qualify.</p>
+</div>
+
+<div class="cfg-lucans-energy-faq-item">
+<h3>How long does wet underfloor heating take to heat a room?</h3>
+<p>An in-screed system typically takes one to two hours to bring a room to temperature from cold. Low-profile overlay systems and suspended-floor spreader-plate systems respond faster, usually 20 to 45 minutes. In practice this rarely matters, because underfloor heating works best when run to maintain a steady temperature rather than switched on and off. The thermal mass of a screeded floor stores heat and releases it slowly, providing consistent warmth even after the heat pump cycles off. This steady-state approach suits heat pump operation well: the pump runs for longer periods at a low, steady output rather than cycling in short bursts as a boiler would.</p>
+</div>
+
+</section>
+
+</div>
+
+<div class="cfg-preview-meta">
+  <h3>Publishing details — for the operator</h3>
+  <p><strong>Meta title:</strong> Underfloor Heating with a Heat Pump | Lucans Energy (50/60 chars)</p>
+  <p><strong>Meta description:</strong> Underfloor heating with a heat pump: why the pairing works, the flow temperature behind the efficiency, and why the heat-loss calculation matters. (144/160 chars)</p>
+  <p><strong>URL slug:</strong> /underfloor-heating-with-heat-pump</p>
+  <p><strong>Primary keyword:</strong> underfloor heating with heat pump</p>
+</div>
+</body>
+</html>

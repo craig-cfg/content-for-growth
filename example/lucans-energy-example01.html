@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PREVIEW: How to Right-Size a Home Battery in the North East — Lucans Energy</title>
+  <style>
+/*
+  ============================================================
+  Lucans Energy — CFG Article Stylesheet
+  lucans-energy-article-global.css
+
+  Namespace prefix: cfg-lucans-energy
+  Input mode: Path A — operator-supplied tokens (extracted from uploaded homepage HTML, Kadence global palette)
+  Source: https://lucans.uk/ (homepage HTML, Kadence theme global palette)
+  Date: 2026-06-08
+
+  Tokens supplied directly (from Kadence --global-palette):
+  - primary   #f7e01e (palette1 / button background, brand yellow)
+  - secondary #e1ca0f (palette2)
+  - dark      #111111 (palette3, headings/strong)
+  - text      #4f4f4f (palette4, body)
+  - background#ffffff (palette9)
+  - accent    #f7e01e (brand yellow for decorative rules; the Kadence highlight default #1e75f7 was dropped as not a real brand colour)
+  - heading-font Montserrat | body-font Cabin
+
+  Tokens derived:
+  - muted #959595 (text lightened ~40%)
+  - surface #fffdf2 (background tinted ~4% toward primary)
+  - surface-alt #f7f5ec (subtle warm-neutral for alternating rows)
+  - btn-text #111111 (white FAILS WCAG AA on yellow primary; dark passes ~14:1)
+  - btn-hover #d2be1a (primary darkened ~15%)
+  - border #dcdcdc (text lightened ~80%)
+
+  Colour logic (flagged — primary is a low-contrast yellow, never used as a foreground/text colour):
+  - Links: dark text (#111111) with a thick yellow underline; on hover the yellow fills behind the text as a highlight. Keeps the brand yellow in play without ever failing contrast.
+  - --color-accent is the brand yellow (#f7e01e): used only for decorative rules and borders (H2 underline, callout/answer-callout left border, card top border), never as text.
+  - H3 subheadings, callout labels and table headers all use the dark colour for legibility. Table header row: dark background, white text.
+  - Buttons keep the exact live-site pattern: yellow background, near-black text (WCAG-safe).
+  - No blue is used. The earlier Kadence highlight blue (#1e75f7) was a theme default, not a real Lucans brand colour.
+
+  Fonts: Montserrat (heading) + Cabin (body) via Google Fonts
+  ============================================================
+*/
+
+/* ============================================================
+   GOOGLE FONTS IMPORT
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Montserrat:wght@400;600;700&display=swap');
+
+/* ============================================================
+   BRAND TOKENS — scoped to the namespace class
+   ============================================================ */
+.cfg-lucans-energy-article {
+  /* Colours */
+  --color-primary:      #f7e01e;
+  --color-secondary:    #e1ca0f;
+  --color-accent:       #f7e01e;
+  --color-text:         #4f4f4f;
+  --color-muted:        #959595;
+  --color-bg:           #ffffff;
+  --color-surface:      #fffdf2;
+  --color-surface-alt:  #f7f5ec;
+  --color-dark:         #111111;
+  --color-link:         #111111;
+  --color-link-hover:   #111111;
+  --color-btn-bg:       #f7e01e;
+  --color-btn-text:     #111111;
+  --color-btn-hover:    #d2be1a;
+  --color-border:       #dcdcdc;
+
+  /* Fonts */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body:    'Cabin', sans-serif;
+}
+
+
+/* ============================================================
+   BASE ARTICLE LAYOUT
+   ============================================================ */
+.cfg-lucans-energy-article {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  background-color: var(--color-bg);
+}
+
+.cfg-lucans-energy-article p {
+  margin: 0 0 20px;
+}
+
+.cfg-lucans-energy-article ul,
+.cfg-lucans-energy-article ol {
+  margin: 0 0 20px;
+  padding-left: 24px;
+}
+
+.cfg-lucans-energy-article li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+.cfg-lucans-energy-article h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin: 0 0 20px;
+  font-weight: 700;
+}
+
+.cfg-lucans-energy-article h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2.5vw, 28px);
+  line-height: 1.3;
+  color: var(--color-dark);
+  margin: 48px 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--color-accent);
+  font-weight: 700;
+}
+
+.cfg-lucans-energy-article h3 {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.8vw, 18px);
+  font-weight: 600;
+  color: var(--color-dark);
+  margin: 32px 0 8px;
+  line-height: 1.4;
+}
+
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+.cfg-lucans-energy-article a {
+  color: var(--color-link);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.cfg-lucans-energy-article a:hover {
+  color: var(--color-dark);
+  background-color: var(--color-primary);
+  text-decoration: none;
+}
+
+
+/* ============================================================
+   ANSWER CALLOUT
+   The opening direct-answer box — primary AEO extraction target
+   ============================================================ */
+.cfg-lucans-energy-answer-callout {
+  background-color: var(--color-surface);
+  border-left: 5px solid var(--color-accent);
+  padding: 20px 24px;
+  margin: 0 0 36px;
+  border-radius: 0 6px 6px 0;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.cfg-lucans-energy-answer-callout p {
+  margin: 0;
+}
+
+
+/* ============================================================
+   IN-BODY CALLOUT BOXES
+   ============================================================ */
+.cfg-lucans-energy-callout {
+  background-color: var(--color-surface);
+  border-left: 4px solid var(--color-primary);
+  padding: 16px 20px;
+  margin: 28px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.cfg-lucans-energy-callout-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-dark);
+  margin-bottom: 8px;
+}
+
+.cfg-lucans-energy-callout p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.cfg-lucans-energy-callout p + p {
+  margin-top: 12px;
+}
+
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+.cfg-lucans-energy-table-wrap {
+  overflow-x: auto;
+  margin: 28px 0 36px;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.cfg-lucans-energy-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  min-width: 480px;
+}
+
+.cfg-lucans-energy-table-wrap th {
+  background-color: var(--color-dark);
+  color: #ffffff;
+  text-align: left;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.cfg-lucans-energy-table-wrap td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.cfg-lucans-energy-table-wrap tr:nth-child(even) td {
+  background-color: var(--color-surface-alt);
+}
+
+.cfg-lucans-energy-table-wrap tr:last-child td {
+  border-bottom: none;
+}
+
+.cfg-lucans-energy-table-wrap tr:hover td {
+  background-color: var(--color-surface);
+}
+
+
+/* ============================================================
+   COMPARISON / FINISH GRID
+   ============================================================ */
+.cfg-lucans-energy-finish-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 28px 0 36px;
+}
+
+.cfg-lucans-energy-finish-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-accent);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.cfg-lucans-energy-finish-card h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: var(--color-dark);
+}
+
+.cfg-lucans-energy-finish-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+
+/* ============================================================
+   CTA BLOCK
+   ============================================================ */
+.cfg-lucans-energy-cta-block {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 32px;
+  margin: 48px 0;
+  text-align: center;
+}
+
+.cfg-lucans-energy-cta-block h2 {
+  border-bottom: none;
+  margin: 0 0 12px;
+  padding: 0;
+  font-size: clamp(20px, 2.5vw, 26px);
+  color: var(--color-dark);
+}
+
+.cfg-lucans-energy-cta-block p {
+  color: var(--color-muted);
+  font-size: 16px;
+  margin: 0 0 24px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cfg-lucans-energy-cta-button {
+  display: inline-block;
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn-text, #ffffff);
+  padding: 14px 32px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cfg-lucans-energy-cta-button:link,
+.cfg-lucans-energy-cta-button:visited,
+.cfg-lucans-energy-cta-button:active {
+  color: var(--color-btn-text, #ffffff);
+  text-decoration: none;
+}
+
+.cfg-lucans-energy-cta-button:hover {
+  background-color: var(--color-btn-hover);
+  color: var(--color-btn-text, #ffffff);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   FAQ SECTION
+   ============================================================ */
+#faq {
+  margin-top: 56px;
+}
+
+.cfg-lucans-energy-faq-item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 24px 0;
+}
+
+.cfg-lucans-energy-faq-item:last-child {
+  border-bottom: none;
+}
+
+.cfg-lucans-energy-faq-item h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-dark);
+  line-height: 1.4;
+}
+
+.cfg-lucans-energy-faq-item p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+  .cfg-lucans-energy-article {
+    padding: 32px 16px;
+    font-size: 16px;
+  }
+
+  .cfg-lucans-energy-article h1 {
+    font-size: 28px;
+  }
+
+  .cfg-lucans-energy-article h2 {
+    font-size: 22px;
+    margin-top: 40px;
+  }
+
+  .cfg-lucans-energy-finish-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cfg-lucans-energy-cta-block {
+    padding: 24px 20px;
+  }
+
+  .cfg-lucans-energy-cta-button {
+    display: block;
+    text-align: center;
+    padding: 14px 20px;
+  }
+
+  .cfg-lucans-energy-table-wrap {
+    margin-left: -16px;
+    margin-right: -16px;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .cfg-lucans-energy-article {
+    font-size: 15px;
+  }
+
+  .cfg-lucans-energy-article h1 {
+    font-size: 24px;
+  }
+
+  .cfg-lucans-energy-article h2 {
+    font-size: 20px;
+  }
+
+  .cfg-lucans-energy-answer-callout {
+    padding: 16px 18px;
+    font-size: 16px;
+  }
+}
+
+
+/* === PREVIEW CHROME === */
+body { margin: 0; padding: 0; background: #ffffff; }
+.cfg-preview-banner {
+  background: #1A1A1A; color: #ffffff; text-align: center;
+  padding: 10px 16px; font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 0.3px;
+}
+.cfg-preview-banner strong { color: #ffffff; font-weight: 700; }
+.cfg-preview-meta {
+  max-width: 780px; margin: 60px auto 0; padding: 24px 24px 48px;
+  border-top: 1px solid #E0E0E0; font-family: Arial, sans-serif; font-size: 13px;
+  color: #777777; line-height: 1.6;
+}
+.cfg-preview-meta h3 {
+  font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; color: #444444;
+  margin: 0 0 12px; text-transform: none; border: none; padding: 0; background: none;
+}
+.cfg-preview-meta p { margin: 6px 0; color: #777777; }
+.cfg-preview-meta strong { color: #444444; }
+
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Place",
+      "@id": "https://lucans.uk/#place",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "54 Ilfracombe Gardens,",
+        "addressLocality": "Whitley Bay",
+        "addressRegion": "Tyne and Wear",
+        "postalCode": "NE26 3SH",
+        "addressCountry": "United Kingdom"
+      }
+    },
+    {
+      "@type": [
+        "HVACBusiness",
+        "Organization"
+      ],
+      "@id": "https://lucans.uk/#organization",
+      "name": "Lucans Ltd",
+      "url": "https://lucans.uk",
+      "email": "hello@lucans.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "54 Ilfracombe Gardens,",
+        "addressLocality": "Whitley Bay",
+        "addressRegion": "Tyne and Wear",
+        "postalCode": "NE26 3SH",
+        "addressCountry": "United Kingdom"
+      },
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://lucans.uk/#logo",
+        "url": "https://lucans.uk/wp-content/uploads/2024/01/cropped-lucans-logo-340x156-1.jpg",
+        "contentUrl": "https://lucans.uk/wp-content/uploads/2024/01/cropped-lucans-logo-340x156-1.jpg",
+        "caption": "Lucans Ltd",
+        "inLanguage": "en-GB",
+        "width": "340",
+        "height": "136"
+      },
+      "openingHours": [
+        "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday 09:00-17:00"
+      ],
+      "legalName": "Lucans Ltd",
+      "location": {
+        "@id": "https://lucans.uk/#place"
+      },
+      "image": {
+        "@id": "https://lucans.uk/#logo"
+      },
+      "telephone": "0191 359 2053"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lucans.uk/#website",
+      "url": "https://lucans.uk",
+      "name": "Lucans Ltd",
+      "alternateName": "LES",
+      "publisher": {
+        "@id": "https://lucans.uk/#organization"
+      },
+      "inLanguage": "en-GB",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://lucans.uk/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://lucans.uk/guides/home-battery-storage/#webpage",
+      "url": "https://lucans.uk/guides/home-battery-storage/",
+      "name": "How to Right-Size a Home Battery in the North East (and Why Bigger Isn't Always Better)",
+      "isPartOf": {"@id": "https://lucans.uk/#website"},
+      "breadcrumb": {"@id": "https://lucans.uk/guides/home-battery-storage/#breadcrumb"}
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://lucans.uk/guides/home-battery-storage/#article",
+      "headline": "How to Right-Size a Home Battery in the North East (and Why Bigger Isn't Always Better)",
+      "description": "How to work out the right size of home battery storage for a North East property, why oversized batteries rarely pay back, and what we install and why.",
+      "abstract": "This article explains how to calculate the correct capacity for a home battery storage system in North East England, and argues that oversizing is one of the most common and avoidable mistakes in the sector. The calculation begins with annual electricity consumption from a smart meter or bill, divided by 365 to produce a daily average, then focused specifically on evening and overnight draw rather than total daily use. For a typical 3-bedroom North East home with a 4 to 5 kWp solar system, 10 to 13.5 kWh of usable battery capacity covers most practical needs. The article takes the position that the North East's lower solar irradiance, approximately 850 kWh per kWp per year against a national average of 900, changes the sizing logic compared to national guidance: the battery does proportionally more work in winter when generation is lowest, and should be sized for that season rather than for peak summer surplus. The article names the financial and practical consequences of oversizing, including worsened payback and idle capacity, and identifies the cases where a larger system is genuinely justified: a heat pump on the near-term plan, an EV, time-of-use tariff arbitrage, or a larger household with high evening demand. It also addresses MCS certification as a requirement for Smart Export Guarantee eligibility, and answers seven common reader questions on sizing, seasonal generation, usable versus nameplate capacity, SEG payments, battery lifespan, available grants, and retrofitting. The article is written for homeowners in Tyne and Wear, Northumberland and County Durham who are weighing up battery storage alongside an existing or planned solar system.",
+      "url": "https://lucans.uk/guides/home-battery-storage/",
+      "author": {"@id": "https://lucans.uk/#organization"},
+      "publisher": {"@id": "https://lucans.uk/#organization"},
+      "isPartOf": {"@id": "https://lucans.uk/#website"},
+      "mainEntityOfPage": {"@id": "https://lucans.uk/guides/home-battery-storage/#webpage"},
+      "inLanguage": "en-GB",
+      "keywords": [
+        "home battery storage",
+        "battery storage house",
+        "home battery",
+        "battery storage",
+        "solar battery storage near me",
+        "home battery storage North East",
+        "battery sizing",
+        "solar battery North East England"
+      ],
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Home energy storage",
+          "sameAs": "https://en.wikipedia.org/wiki/Home_energy_storage"
+        },
+        {
+          "@type": "Place",
+          "name": "North East England",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/North_East_England",
+            "https://www.wikidata.org/wiki/Q14205923"
+          ]
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "Place",
+          "name": "Tyne and Wear",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Tyne_and_Wear",
+            "https://www.wikidata.org/wiki/Q23080"
+          ]
+        },
+        {
+          "@type": "GovernmentOrganization",
+          "name": "Ofgem",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Ofgem",
+            "https://www.wikidata.org/wiki/Q3349672"
+          ]
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Photovoltaic system",
+          "sameAs": [
+            "https://en.wikipedia.org/wiki/Photovoltaic_system",
+            "https://www.wikidata.org/wiki/Q1897785"
+          ]
+        },
+        {
+          "@type": "GovernmentService",
+          "name": "Smart Export Guarantee",
+          "url": "https://www.ofgem.gov.uk/environmental-and-social-schemes/smart-export-guarantee-seg"
+        },
+        {
+          "@type": "Organization",
+          "name": "MCS (Microgeneration Certification Scheme)",
+          "url": "https://mcscertified.com"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://lucans.uk/guides/home-battery-storage/#faqpage",
+      "isPartOf": {"@id": "https://lucans.uk/guides/home-battery-storage/#webpage"},
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much home battery storage does a typical North East household need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For many standard 3-bedroom homes in the North East, 5 to 10 kWh of usable battery capacity covers the majority of evening demand. A 10 to 13.5 kWh battery makes more sense where evening consumption is higher, the home has a larger solar array, or the household plans to use cheap overnight grid charging alongside solar storage. If a heat pump is in the near-term plan, allow headroom for the overlap period when both the heating and the house are drawing from the battery at the same time. The key figure to start from is your actual evening draw: divide your annual electricity use by 365 and take 40 to 60 percent of that number."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will solar panels generate enough in the North East to charge a battery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, over the course of a year, but the seasonal variation shapes what size you need. A 4 kWp system in Tyne and Wear typically generates 3,200 to 3,600 kWh annually. In summer the battery fills easily and you will regularly export surplus to the grid. In November and December, daily generation can drop to 2 to 4 kWh, so the battery relies more on overnight grid top-ups via a time-of-use tariff. A well-sized battery works in both seasons, which means designing around winter draw, not summer surplus."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between nameplate capacity and usable capacity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nameplate capacity is the total kWh the battery is rated to hold. Usable capacity is what you can actually draw on without damaging the cells or voiding the warranty. Most modern lithium iron phosphate batteries offer 90 to 95 percent depth of discharge, so a battery rated at 10 kWh delivers roughly 9 to 9.5 kWh of usable storage. Always compare batteries on usable capacity rather than nameplate capacity. A battery listed as 10 kWh with 80 percent depth of discharge delivers only 8 kWh, and costs more per usable kWh than a competitor with higher discharge depth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does adding battery storage affect my Smart Export Guarantee payments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It should not reduce your SEG payments, provided both your solar panels and the battery are installed by an MCS-certified installer. The SEG pays you for electricity exported from your solar system to the grid. A battery will typically reduce how much you export, because you are storing and using more of what you generate, but your SEG tariff registration remains valid. When retrofitting a battery to an existing solar system, check with your installer and your energy supplier to confirm the MCS documentation is in order before installation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a home battery storage system last?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most modern lithium iron phosphate batteries carry a 10-year performance warranty. The Energy Saving Trust estimates a typical lifespan of 10 to 12 years. Solar panels often last 25 years or more, so a battery will likely need replacing once during your solar system's lifetime. When planning your long-term energy costs, budget for a replacement battery roughly a decade after installation. The replacement cost is usually lower than the original install because the inverter and wiring are already in place."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a grant for home battery storage in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no direct government grant for standalone electrical battery storage in England in 2026. All qualifying battery installations currently benefit from 0% VAT, saving several hundred pounds on a typical system. Battery storage installed as part of an MCS-certified solar PV installation is included in that rate. Government support for home energy upgrades is evolving and the position may change, but there is nothing confirmed at the time of writing beyond the VAT relief."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I add battery storage to an existing solar system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, in most cases. The key questions are whether your existing inverter is battery-compatible — hybrid inverters accept batteries directly, while older string inverters may require an additional AC-coupled battery inverter — and whether your distribution board has the capacity for the new load. An MCS-certified installer can assess your existing setup and advise on the most cost-effective retrofit route. We do this regularly across Tyne and Wear, Northumberland and County Durham, and in most cases it is a straightforward addition to a working solar system."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lucans.uk/guides/home-battery-storage/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://lucans.uk"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://lucans.uk/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to Right-Size a Home Battery in the North East (and Why Bigger Isn't Always Better)"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <div class="cfg-preview-banner">PREVIEW — <strong>Lucans Energy</strong> | How to Right-Size a Home Battery in the North East | Lane 2: Solar &amp; battery | Schema embedded in &lt;head&gt;</div>
+
+<div class="cfg-lucans-energy-article">
+
+  <h1>How to Right-Size a Home Battery in the North East (and Why Bigger Isn't Always Better)</h1>
+
+  <div class="cfg-lucans-energy-answer-callout">
+    <p>To size a home battery storage system, start with your annual electricity consumption from your bill or smart meter app. Divide by 365 to find your daily average, then focus on your evening draw, typically 40 to 60 percent of that figure. For many standard 3-bedroom homes in the North East, 5 to 10 kWh of usable storage covers evening demand comfortably. A 10 to 13.5 kWh battery makes more sense where evening demand is higher, the home has a larger solar array, the household wants to use cheap overnight grid charging, or a heat pump or electric vehicle is part of the near-term plan.</p>
+  </div>
+
+  <p>If you have been quoted for home battery storage and the recommended capacity felt like a number picked from the top of the catalogue, you are probably right to wonder. Battery sizing is not complicated once you understand the logic, but it is an area where a lot of homeowners end up with a system that is bigger than their home justifies. This article walks through the actual calculation, explains why the North East changes the answer compared to national guidance, and names the cases where a larger battery genuinely earns its place.</p>
+
+  <p>We are MCS-certified installers based in Whitley Bay, and we fit battery storage across Tyne and Wear, Northumberland and County Durham. What follows is what we tell customers at survey. Not a sales pitch for the biggest system on the page.</p>
+
+  <h2>How to Work Out the Size You Actually Need</h2>
+
+  <p>The starting point is your annual electricity consumption. You will find it on your electricity bill or in your smart meter app, usually expressed in kilowatt-hours per year. Divide that figure by 365 and you have your average daily use. <a href="https://assets.publishing.service.gov.uk/media/67e3eae39c9de963bc39b482/consumption-level-review-march-2025-methodology.pdf" target="_blank" rel="noopener noreferrer">The government's March 2025 Typical Domestic Consumption Values review</a> puts a medium UK household at 3,400 kWh per year, which works out to around 9.3 kWh per day. A larger North East family home, especially one that runs an EV or has older appliances, will often sit between 3,800 and 4,500 kWh, closer to 10 to 12 kWh per day.</p>
+
+  <p>Here is the part most quotes gloss over. You are not trying to cover your total daily electricity use from battery storage. You are trying to cover your evening and overnight draw: the period from roughly 4pm to 11pm when your solar panels have stopped generating and you are pulling from whatever you stored during the day. That window typically accounts for 40 to 60 percent of daily consumption. For a home using 10 kWh per day, evening demand might be 4 to 6 kWh. That is the number the battery needs to cover, not the 10.</p>
+
+  <p>We find that a lot of quotes are built off the headline daily figure rather than the evening-only figure, and that single step accounts for a lot of oversizing. Work out your evening draw before you compare any battery to your needs.</p>
+
+  <h2>Solar Up Here Generates Less in Winter. That Shapes Everything</h2>
+
+  <p>National battery sizing tables are calibrated against a national average solar yield of around 900 kWh per kilowatt-peak per year. In the North East, <a href="https://www.solarinfo.uk/solar-map" target="_blank" rel="noopener noreferrer">PVGIS-sourced irradiance data for UK regions</a> puts the figure closer to 850 kWh per kWp, meaningfully lower, and that gap widens in winter when it matters most.</p>
+
+  <p>A 4 kWp system in Whitley Bay or Sunderland will generate roughly 3,200 to 3,600 kWh over the course of a year. In June, that same system might produce 20 to 25 kWh on a clear day, far more than a 13.5 kWh battery can hold. In January, output drops to 2 to 4 kWh. On those short winter days, the battery cannot fully charge from solar alone. In practice, a well-set-up battery in a North East winter is often working as much as a cheap-rate grid storage device as it is a solar device. You top it up overnight on a time-of-use tariff like Octopus Agile, then draw on it through the day and evening. That is not a compromise on the solar case, it is an extension of it.</p>
+
+  <div class="cfg-lucans-energy-callout">
+    <div class="cfg-lucans-energy-callout-label">What this means in practice</div>
+    <p>Your battery does the most important work in October through February, when solar generation is low and your heating and lighting demand is high. A battery sized for a summer surplus is not the same as a battery sized for a winter evening. Size for the harder season, not the easier one. In the North East, that typically means prioritising reliable daily cycling over raw capacity.</p>
+  </div>
+
+  <p>This is why we are cautious about citing payback figures from national comparison sites. They use national irradiance assumptions. Your actual saving depends on your postcode's generation profile, and ours is not the same as Surrey's. That said, solar and battery storage works well this far north. You just need the system sized for how it actually performs here, not how it performs in the brochure.</p>
+
+  <h2>Most Batteries Are Quoted Too Big. Here's Why</h2>
+
+  <p>We think the renewable trade has a sales problem, and battery sizing is one of the clearest examples of it. Most installer revenue is tied to installation value. A larger battery is a larger ticket. The language used to justify it is usually "future-proofing", and future-proofing is sometimes right. More often, it is a way to add capacity without committing to a specific reason.</p>
+
+  <p>An oversized battery costs more upfront and rarely pays back proportionally. A battery that sits at 80 percent charge every afternoon in July, because there is not enough evening demand to empty it, is not doing useful work. That unused capacity is money that is not cycling. Money that is not cycling is not earning back its purchase price.</p>
+
+  <div class="cfg-lucans-energy-callout">
+    <div class="cfg-lucans-energy-callout-label">The question to ask any installer</div>
+    <p>If a quote recommends more than 13.5 kWh for a standard 3 or 4-bed home without a heat pump or EV already in place, ask what specific load the extra capacity is covering. A good installer will have a specific answer: a planned appliance, a usage pattern, a tariff strategy. If the answer is "future-proofing" without a named future, the extra capacity is padding.</p>
+  </div>
+
+  <p>We would rather size a battery for the home you have today and come back to add capacity if your situation genuinely changes, whether a heat pump goes in, an EV arrives or your household grows, than sell you three years of idle storage on the promise that you might need it one day. That is not how we design systems, and the customers who come to us after a quote that felt wrong usually tell us some version of the same thing: the number was big and the reasoning was thin.</p>
+
+  <div class="cfg-lucans-energy-cta-block">
+    <h2>Not sure what size battery your home actually needs?</h2>
+    <p>Book a free survey and we will look at your actual usage figures, your roof and your existing solar setup if you have one. You will get a fixed written price before any work starts.</p>
+    <a class="cfg-lucans-energy-cta-button" href="https://lucans.uk/contact-us/">Book a free survey</a>
+  </div>
+
+  <h2>What the Right Size Battery Actually Saves You</h2>
+
+  <p>A correctly sized battery improves your payback in two ways. First, it cycles fully and regularly: charge from solar during the day, discharge during the evening. That means every kWh of capacity earns its keep every day. Second, it avoids paying for storage that contributes nothing to your bill reduction.</p>
+
+  <p>The cost range for home battery storage is wide. <a href="https://energysavingtrust.org.uk/advice/battery-storage/" target="_blank" rel="noopener noreferrer">The Energy Saving Trust's battery storage guide</a> (last updated April 2026) puts the range at £1,500 to £10,000, with a 5 kWh system running around £4,600 installed. A 10 to 13.5 kWh system from a reputable installer in the North East typically lands between £6,000 and £9,000 depending on the brand, the inverter configuration and whether it is being installed alongside new solar or retrofitted to an existing system. All qualifying battery installations currently benefit from 0% VAT under <a href="https://www.gov.uk/guidance/vat-on-energy-saving-materials-and-heating-equipment-notice-7086" target="_blank" rel="noopener noreferrer">HMRC's VAT Notice 708/6 on energy-saving materials</a>, which takes several hundred pounds off the figure at point of installation.</p>
+
+  <p>A battery that cycles fully every day earns back its cost more quickly than one that sits partially empty. The payback arithmetic is not just about how much you generate. It is about how efficiently the storage works. A smaller battery that empties and refills reliably may outperform a larger one that never reaches its potential on typical days. That is the case we make to every customer who arrives with a quote for 20 kWh and a 3-bed semi.</p>
+
+  <h2>Sometimes Bigger Is Right, But For Specific Reasons</h2>
+
+  <p>We do not think you should always choose the smallest battery that covers your current evening draw. There are genuine cases for going larger, and they are worth naming clearly.</p>
+
+  <p>If a heat pump is on your near-term plan, size for it now. An air source heat pump running through a North East winter can add 8 to 15 kWh per day to your electricity demand. A battery sized for a gas-heated home will not keep up when the heating switches to electric. We design around where your home is heading, not just where it is today.</p>
+
+  <p>If you are on an Octopus time-of-use tariff, and as an <a href="https://lucans.uk/solar-battery-storage/" target="_blank" rel="noopener noreferrer">Octopus Energy Trusted Partner, we can help you access the 13.5 kWh battery storage we install</a> alongside the right tariff. A larger battery lets you charge cheaply overnight and draw on that stored grid electricity during the expensive peak period, on top of capturing your solar surplus. A battery doing both jobs needs more capacity than one doing just solar storage. Size for both draws or it will empty mid-evening when you need it most.</p>
+
+  <p>Larger households, homes with electric showers, underfloor heating or multiple occupants working from home will simply use more electricity in the evening window. The formula is the same: work from your actual evening draw. But the number it produces is bigger. The point is not that 13.5 kWh is always wrong. The point is that it should follow from the calculation, not precede it.</p>
+
+  <h2>Why the Installer's Certification Affects Your Export Payments</h2>
+
+  <p>MCS certification is not just a quality badge. For battery storage installed alongside solar panels, it is the normal route to the Smart Export Guarantee, the scheme that pays you for surplus electricity exported to the grid. <a href="https://www.ofgem.gov.uk/environmental-and-social-schemes/smart-export-guarantee-seg" target="_blank" rel="noopener noreferrer">Ofgem's Smart Export Guarantee guidance</a> sets out that the installation must be certified through MCS or an equivalent recognised scheme. In practice, MCS is what the large majority of energy suppliers will ask to see when registering a domestic solar system for SEG payments.</p>
+
+  <p>A battery system installed by an uncertified installer does not carry the MCS documentation your energy supplier needs to register your solar installation for export payments. You can still use the battery, but you may not be able to claim SEG payments for the electricity your panels export, which amounts to a meaningful annual income over the system's lifetime.</p>
+
+  <p>Before booking any survey, use the <a href="https://mcscertified.com/find-an-installer/" target="_blank" rel="noopener noreferrer">MCS certified installer search</a> to confirm your installer holds current certification. We are MCS-certified and have been since we started fitting systems in the North East. It is not something we raise as a selling point. It is the baseline standard the work requires.</p>
+
+  <div class="cfg-lucans-energy-cta-block">
+    <h2>Already had a battery quote? We will sense-check the size.</h2>
+    <p>Bring us the spec and we will tell you honestly whether the capacity matches your home. If it does, great. If it does not, we will show you what does and give you a fixed written price for comparison.</p>
+    <a class="cfg-lucans-energy-cta-button" href="https://lucans.uk/contact-us/">Get your quote sense-checked</a>
+  </div>
+
+  <section id="faq">
+
+    <div class="cfg-lucans-energy-faq-item">
+      <h3>How much home battery storage does a typical North East household need?</h3>
+      <p>For many standard 3-bedroom homes in the North East, 5 to 10 kWh of usable battery capacity covers the majority of evening demand. A 10 to 13.5 kWh battery makes more sense where evening consumption is higher, the home has a larger solar array, or the household plans to use cheap overnight grid charging alongside solar storage. If a heat pump is in the near-term plan, allow headroom for the overlap period when both the heating and the house are drawing from the battery at the same time. The key figure to start from is your actual evening draw: divide your annual electricity use by 365 and take 40 to 60 percent of that number.</p>
+    </div>
+
+    <div class="cfg-lucans-energy-faq-item">
+      <h3>Will solar panels generate enough in the North East to charge a battery?</h3>
+      <p>Yes, over the course of a year, but the seasonal variation shapes what size you need. A 4 kWp system in Tyne and Wear typically generates 3,200 to 3,600 kWh annually. In summer the battery fills easily and you will regularly export surplus to the grid. In November and December, daily generation can drop to 2 to 4 kWh, so the battery relies more on overnight grid top-ups via a time-of-use tariff. A well-sized battery works in both seasons, which means designing around winter draw, not summer surplus.</p>
+    </div>
+
+    <div class="cfg-lucans-energy-faq-item">
+      <h3>What is the difference between nameplate capacity and usable capacity?</h3>
+      <p>Nameplate capacity is the total kWh the battery is rated to hold. Usable capacity is what you can actually draw on without damaging the cells or voiding the warranty. Most modern lithium iron phosphate batteries offer 90 to 95 percent depth of discharge, so a battery rated at 10 kWh delivers roughly 9 to 9.5 kWh of usable storage. Always compare batteries on usable capacity rather than nameplate capacity. A battery listed as 10 kWh with 80 percent depth of discharge delivers only 8 kWh, and costs more per usable kWh than a competitor with higher discharge depth.</p>
+    </div>
+
+    <div class="cfg-lucans-energy-faq-item">
+      <h3>Does adding battery storage affect my Smart Export Guarantee payments?</h3>
+      <p>It should not reduce your SEG payments, provided both your solar panels and the battery are installed by an MCS-certified installer. The SEG pays you for electricity exported from your solar system to the grid. A battery will typically reduce how much you export, because you are storing and using more of what you generate, but your SEG tariff registration remains valid. When retrofitting a battery to an existing solar system, check with your installer and your energy supplier to confirm the MCS documentation is in order before installation.</p>
+    </div>
+
+    <div class="cfg-lucans-energy-faq-item">
+      <h3>How long does a home battery storage system last?</h3>
+      <p>Most modern lithium iron phosphate batteries carry a 10-year performance warranty. The Energy Saving Trust estimates a typical lifespan of 10 to 12 years. Solar panels often last 25 years or more, so a battery will likely need replacing once during your solar system's lifetime. When planning your long-term energy costs, budget for a replacement battery roughly a decade after installation. The replacement cost is usually lower than the original install because the inverter and wiring are already in place.</p>
+    </div>
+
+    <div class="cfg-lucans-energy-faq-item">
+      <h3>Is there a grant for home battery storage in 2026?</h3>
+      <p>There is no direct government grant for standalone electrical battery storage in England in 2026. All qualifying battery installations currently benefit from 0% VAT, saving several hundred pounds on a typical system. Battery storage installed as part of an MCS-certified solar PV installation is included in that rate. Government support for home energy upgrades is evolving and the position may change, but there is nothing confirmed at the time of writing beyond the VAT relief. We will update customers as and when any new support applies.</p>
+    </div>
+
+    <div class="cfg-lucans-energy-faq-item">
+      <h3>Can I add battery storage to an existing solar system?</h3>
+      <p>Yes, in most cases. The key questions are whether your existing inverter is battery-compatible: hybrid inverters accept batteries directly, while older string inverters may require an additional AC-coupled battery inverter. Check also whether your distribution board has the capacity for the new load. An MCS-certified installer can assess your existing setup and advise on the most cost-effective retrofit route. We do this regularly across Tyne and Wear, Northumberland and County Durham, and in most cases it is a straightforward addition to a working solar system.</p>
+    </div>
+
+  </section>
+
+</div>
+
+
+  <div class="cfg-preview-meta">
+    <h3>Publishing details &mdash; for the operator</h3>
+    <p><strong>Meta title:</strong> Right-Sizing Home Battery Storage in the North East | Lucans (60/60 chars)</p>
+    <p><strong>Meta description:</strong> How to work out the right size of home battery storage for a North East property, why oversized batteries rarely pay back, and what we install and why. (151/160 chars)</p>
+    <p><strong>URL slug:</strong> /posts/home-battery-storage</p>
+    <p><strong>Primary keyword:</strong> home battery storage</p>
+    <p><strong>Note:</strong> Schema is embedded in &lt;head&gt; for validation purposes only. In WordPress, paste it into the SEO plugin&#x27;s custom schema field, not the article body.</p>
+  </div>
+</body>
+</html>
