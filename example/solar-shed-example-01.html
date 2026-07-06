@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PREVIEW: Is Solar Worth It in 2026? An Honest Look at the Costs and Savings — The Solar Shed Ltd</title>
+  <style>
+/*
+  ============================================================
+  The Solar Shed Ltd — CFG Article Stylesheet
+  solar-shed-article-global.css
+
+  Namespace prefix: cfg-ss
+  Input mode: Path A — operator-supplied tokens (no scrape)
+  Source: operator brand tokens (thesolarshed.co.uk look: plain, older
+          WordPress / Bootstrap-style article; mostly white, black
+          headings, dark grey body, sand used only as a logo nod)
+  Date: 2026-07-01
+
+  Token mapping (operator token -> CFG variable):
+  - --color-primary   #000000  (operator "main/link/accent black"; drives h3, callout edges, labels)
+  - --color-secondary #000000  (table header background; white text sits on it, so kept dark)
+  - --color-accent    #EFD2A0  (operator logo sand; used ONLY as thin border rules — the sparing nod)
+  - --color-text      #333333  (operator body text)
+  - --color-muted     #666666  (operator muted text)
+  - --color-bg        #FFFFFF  (operator white background)
+  - --color-surface   #F7F7F7  (operator pale grey background — callout/card/CTA surfaces)
+  - --color-surface-alt #FAFAFA (derived: a fractionally lighter grey for zebra table rows)
+  - --color-dark      #111111  (operator heading black; h1/h2 and strong headings)
+  - --color-link      #000000  (operator link/accent black)
+  - --color-link-hover #555555 (derived: gentle grey hover, no new hue)
+  - --color-btn-bg    #000000  (CTA fill = black; white text passes WCAG AA at 21:1)
+  - --color-btn-text  #FFFFFF
+  - --color-btn-hover #333333  (derived: lifted black hover)
+  - --color-border    #E5E5E5  (operator soft border grey)
+
+  Fonts: system stack, NO Google Fonts.
+    Heading + body: "Helvetica Neue", Helvetica, Arial, sans-serif
+    (Explicitly not Montserrat/Poppins/Lato; no serif; no @import.)
+
+  Sand (#EFD2A0) appears only as 3–5px accent rules under H2s and on
+  callout/card edges — a nod to the logo, never a block or background.
+  ============================================================
+*/
+
+/* System fonts only — no Google Fonts import. */
+
+/* ============================================================
+   BRAND TOKENS — scoped to the namespace class
+   ============================================================ */
+.cfg-ss-article {
+  /* Colours */
+  --color-primary:      #000000;
+  --color-secondary:    #000000;
+  --color-accent:       #EFD2A0;
+  --color-text:         #333333;
+  --color-muted:        #666666;
+  --color-bg:           #FFFFFF;
+  --color-surface:      #F7F7F7;
+  --color-surface-alt:  #FAFAFA;
+  --color-dark:         #111111;
+  --color-link:         #000000;
+  --color-link-hover:   #555555;
+  --color-btn-bg:       #000000;
+  --color-btn-text:     #FFFFFF;
+  --color-btn-hover:    #333333;
+  --color-border:       #E5E5E5;
+
+  /* Fonts */
+  --font-heading: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body:    "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+/* ============================================================
+   BASE ARTICLE LAYOUT
+   ============================================================ */
+.cfg-ss-article {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  background-color: var(--color-bg);
+}
+
+.cfg-ss-article p {
+  margin: 0 0 20px;
+}
+
+.cfg-ss-article ul,
+.cfg-ss-article ol {
+  margin: 0 0 20px;
+  padding-left: 24px;
+}
+
+.cfg-ss-article li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   HEADINGS
+   ============================================================ */
+.cfg-ss-article h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin: 0 0 20px;
+  font-weight: 700;
+}
+
+.cfg-ss-article h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 2.5vw, 28px);
+  line-height: 1.3;
+  color: var(--color-dark);
+  margin: 48px 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--color-accent);
+  font-weight: 700;
+}
+
+.cfg-ss-article h3 {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.8vw, 18px);
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 32px 0 8px;
+  line-height: 1.4;
+}
+
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+.cfg-ss-article a {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease;
+}
+
+.cfg-ss-article a:hover {
+  color: var(--color-link-hover);
+}
+
+
+/* ============================================================
+   ANSWER CALLOUT
+   The opening direct-answer box — primary AEO extraction target
+   ============================================================ */
+.cfg-ss-answer-callout {
+  background-color: var(--color-surface);
+  border-left: 5px solid var(--color-accent);
+  padding: 20px 24px;
+  margin: 0 0 36px;
+  border-radius: 0 6px 6px 0;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.cfg-ss-answer-callout p {
+  margin: 0;
+}
+
+
+/* ============================================================
+   IN-BODY CALLOUT BOXES
+   ============================================================ */
+.cfg-ss-callout {
+  background-color: var(--color-surface);
+  border-left: 4px solid var(--color-primary);
+  padding: 16px 20px;
+  margin: 28px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.cfg-ss-callout-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.cfg-ss-callout p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.cfg-ss-callout p + p {
+  margin-top: 12px;
+}
+
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+.cfg-ss-table-wrap {
+  overflow-x: auto;
+  margin: 28px 0 36px;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.cfg-ss-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  min-width: 480px;
+}
+
+.cfg-ss-table-wrap th {
+  background-color: var(--color-secondary);
+  color: #ffffff;
+  text-align: left;
+  padding: 12px 16px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.cfg-ss-table-wrap td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.cfg-ss-table-wrap tr:nth-child(even) td {
+  background-color: var(--color-surface-alt);
+}
+
+.cfg-ss-table-wrap tr:last-child td {
+  border-bottom: none;
+}
+
+.cfg-ss-table-wrap tr:hover td {
+  background-color: var(--color-surface);
+}
+
+
+/* ============================================================
+   COMPARISON / FINISH GRID
+   ============================================================ */
+.cfg-ss-finish-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 28px 0 36px;
+}
+
+.cfg-ss-finish-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 4px solid var(--color-accent);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.cfg-ss-finish-card h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  color: var(--color-dark);
+}
+
+.cfg-ss-finish-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+
+/* ============================================================
+   CTA BLOCK
+   ============================================================ */
+.cfg-ss-cta-block {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 32px;
+  margin: 48px 0;
+  text-align: center;
+}
+
+.cfg-ss-cta-block h2 {
+  border-bottom: none;
+  margin: 0 0 12px;
+  padding: 0;
+  font-size: clamp(20px, 2.5vw, 26px);
+  color: var(--color-dark);
+}
+
+.cfg-ss-cta-block p {
+  color: var(--color-muted);
+  font-size: 16px;
+  margin: 0 0 24px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cfg-ss-cta-button {
+  display: inline-block;
+  background-color: var(--color-btn-bg);
+  color: var(--color-btn-text, #ffffff);
+  padding: 14px 32px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cfg-ss-cta-button:link,
+.cfg-ss-cta-button:visited,
+.cfg-ss-cta-button:active {
+  color: var(--color-btn-text, #ffffff);
+  text-decoration: none;
+}
+
+.cfg-ss-cta-button:hover {
+  background-color: var(--color-btn-hover);
+  color: var(--color-btn-text, #ffffff);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   FAQ SECTION
+   ============================================================ */
+#faq {
+  margin-top: 56px;
+}
+
+.cfg-ss-faq-item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 24px 0;
+}
+
+.cfg-ss-faq-item:last-child {
+  border-bottom: none;
+}
+
+.cfg-ss-faq-item h3 {
+  margin: 0 0 12px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-dark);
+  line-height: 1.4;
+}
+
+.cfg-ss-faq-item p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+  .cfg-ss-article {
+    padding: 32px 16px;
+    font-size: 16px;
+  }
+
+  .cfg-ss-article h1 {
+    font-size: 28px;
+  }
+
+  .cfg-ss-article h2 {
+    font-size: 22px;
+    margin-top: 40px;
+  }
+
+  .cfg-ss-finish-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cfg-ss-cta-block {
+    padding: 24px 20px;
+  }
+
+  .cfg-ss-cta-button {
+    display: block;
+    text-align: center;
+    padding: 14px 20px;
+  }
+
+  .cfg-ss-table-wrap {
+    margin-left: -16px;
+    margin-right: -16px;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .cfg-ss-article {
+    font-size: 15px;
+  }
+
+  .cfg-ss-article h1 {
+    font-size: 24px;
+  }
+
+  .cfg-ss-article h2 {
+    font-size: 20px;
+  }
+
+  .cfg-ss-answer-callout {
+    padding: 16px 18px;
+    font-size: 16px;
+  }
+}
+
+
+/* === PREVIEW CHROME — preview-only, never installed in WordPress === */
+body { margin: 0; padding: 0; background: #ffffff; }
+.cfg-preview-banner {
+  background: #1A1A1A;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 16px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+.cfg-preview-banner strong { color: #ffffff; font-weight: 700; }
+.cfg-preview-meta {
+  max-width: 780px;
+  margin: 60px auto 0;
+  padding: 24px 24px 48px;
+  border-top: 1px solid #E0E0E0;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #777777;
+  line-height: 1.6;
+}
+.cfg-preview-meta h3 {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #444444;
+  margin: 0 0 12px;
+  text-transform: none;
+  border: none;
+  padding: 0;
+  background: none;
+}
+.cfg-preview-meta p { margin: 6px 0; color: #777777; }
+.cfg-preview-meta strong { color: #444444; }
+
+  </style>
+</head>
+<body>
+  <div class="cfg-preview-banner">PREVIEW — <strong>The Solar Shed Ltd</strong> | Is Solar Worth It in 2026? An Honest Look at the Costs and Savings | Lane: Honest Buyer's Guides</div>
+
+<div class="cfg-ss-article">
+
+<h1>Is Solar Worth It in 2026? An Honest Look at the Costs and Savings</h1>
+
+<div class="cfg-ss-answer-callout">
+<p>For most solar homes in the UK, a solar panel system pays for itself in roughly six to ten years, depending mainly on how much of the generated electricity gets used rather than exported. In 2026 that maths is helped by 0% VAT on qualifying installations, in place until 31 March 2027, and Smart Export Guarantee payments for anything sent back to the grid. The single biggest variable is not panel quality or roof size. It is how much of your own electricity you actually use.</p>
+</div>
+
+<p>Every solar quote you get in 2026 comes with a payback number stapled to it, and here is the part nobody puts on the brochure: that number tells you almost nothing about your own roof. Ask ten installers whether a solar panel system is worth it for solar homes in 2026 and you will get ten confident answers built on the same national averages. This guide gives you the honest version instead: what solar actually costs this year, what genuinely drives the savings, and where the sums fall apart for some households entirely.</p>
+
+<p>We install solar PV, battery storage and solar thermal systems on all kinds of solar buildings across West Norfolk, King's Lynn and East Anglia, from period cottages to modern new-builds, and we have data going back to 2008 on what these systems actually do once they are switched on. That is a different starting point to a national calculator built on averages. So this is not a sales pitch dressed up as an FAQ. It is the answer we would give you in the barn, over a cup of tea, before you have spent a penny.</p>
+
+<h2>What solar actually costs to install in 2026</h2>
+
+<p>A typical solar domestic system in 2026 costs somewhere between £4,500 and £9,000 installed, depending on system size, roof complexity, and whether you add battery storage at the same time. The roof installation of solar panels itself is usually the smaller share of that figure once scaffolding, an awkward roof, or a scattered array across multiple pitches gets added on. That is what a solar panel system genuinely costs most solar homes in 2026, not the number on a brochure. What has changed recently is the tax treatment sitting underneath those figures.</p>
+
+<p>Since 2023, <a href="https://www.gov.uk/guidance/vat-on-energy-saving-materials-and-heating-equipment-notice-7086" target="_blank" rel="noopener noreferrer">HMRC's VAT Notice 708/6 on energy-saving installations</a> has applied a 0% VAT rate to qualifying solar PV, solar thermal and battery installations, covering both the equipment and the labour. That relief runs until 31 March 2027, after which it reverts to 5%. If you are weighing up whether to commit this year or wait, that date is the one fixed point in an otherwise flexible decision. Nobody can promise the VAT relief will be extended, and nobody should tell you it definitely won't be. What can be said honestly is that after 31 March 2027, the same system costs more for no extra benefit.</p>
+
+<p>Here is roughly what that looks like across common system sizes. These are starting points, not quotes.</p>
+
+<div class="cfg-ss-table-wrap">
+<table>
+<thead>
+<tr>
+<th>System size</th>
+<th>Typical installed cost (2026, post-VAT)</th>
+<th>Typical annual saving (illustrative)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Around 3kWp</td>
+<td>£4,500–£6,000</td>
+<td>£400–£600</td>
+</tr>
+<tr>
+<td>Around 4–5kWp</td>
+<td>£6,000–£8,000</td>
+<td>£600–£900</td>
+</tr>
+<tr>
+<td>6kWp+ with battery</td>
+<td>£9,000–£13,000</td>
+<td>£900–£1,300</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>These figures are typical ranges, not sourced to a single document. Your own number depends on your roof, your usage and what the survey finds, and any installer who gives you a fixed figure before seeing your roof is guessing.</p>
+
+<h2>How much you save, and why one "payback number" is nearly meaningless</h2>
+
+<p>Two households, identical semi-detached roofs, identical ten-panel systems, identical battery. One is a family of five getting through 8,000 kWh a year. The other is two retirees using 3,000 kWh. On paper their solar system is the same investment. In practice their paybacks are nowhere close, because the family with higher, more spread-out daytime usage keeps far more of what the panels generate, while the quieter household exports a larger share of theirs at the lower Smart Export Guarantee rate instead of the full retail price.</p>
+
+<p>That is not a hypothetical. It is the exact argument we have made before, worked through with real numbers, in <a href="https://www.thesolarshed.co.uk/2024/07/29/why-the-payback-is-wrong/">why we think a single stated payback figure is close to meaningless</a>. If a quote gives you one confident payback number without asking what time you are usually home, or how you use your washing machine, treat it the way you would treat any other salesman's promise.</p>
+
+<p>The mechanism is simple even if the maths is not. Electricity you generate and use yourself is worth the full retail rate. Electricity you export instead earns a Smart Export Guarantee payment, typically a fraction of that. Self-consumption, not system size, is what actually drives payback. A smaller system sized to your real usage can outperform a bigger one that spends half its life exporting cheaply.</p>
+
+<p>None of this means the industry-standard six to ten year range is wrong. It means it is an average, and averages describe nobody's actual roof.</p>
+
+<h2>The Ofgem price cap, SEG, and what they actually mean for your bill</h2>
+
+<p>Every three months, <a href="https://www.ofgem.gov.uk/news/changes-energy-price-cap-between-1-july-and-30-september-2026" target="_blank" rel="noopener noreferrer">Ofgem's July to September 2026 price cap update</a> resets the maximum a supplier can charge for a unit of grid electricity. Under that update, a typical Direct Debit customer on a standard variable tariff pays 26.11p per kWh, a rise driven mainly by wholesale gas costs. It is worth understanding, because every time the cap rises, so does the value of every kWh you generate and use yourself instead of buying it.</p>
+
+<p>Anything you export instead of using goes through a different scheme, the Smart Export Guarantee. It pays you for surplus electricity fed back to the grid, and the rate varies by supplier. There is a hard eligibility gate most people do not find out about until they try to register: <a href="https://www.gov.uk/government/publications/smart-export-guarantee-seg-earn-money-for-exporting-the-renewable-electricity-you-have-generated" target="_blank" rel="noopener noreferrer">the government's Smart Export Guarantee eligibility rules</a> require your installation and installer to be certified through MCS, or an accredited equivalent scheme such as Flexi-Orb. We work with MCS-certified installers precisely because this is not optional paperwork. Get it wrong and you cannot register for export payments at all, whatever the panels themselves are capable of.</p>
+
+<p>If you want to see what a properly specified system for your roof looks like, <a href="https://www.thesolarshed.co.uk/home/domestic/domestic-solar/">our domestic solar PV service</a> covers exactly this.</p>
+
+<h2>Does a battery change the maths?</h2>
+
+<p>A battery raises how much of your own generation you actually use, typically from somewhere around 30 to 50% on solar alone, up toward 70 to 85% with storage in place, because it lets you use daytime generation after the sun has gone down instead of exporting it at the lower rate. For households with evening-heavy usage, that shift can meaningfully shorten payback.</p>
+
+<p>It can also be the most expensive mistake in the whole decision. People chase the biggest battery their budget allows, when the right question is how much you actually use overnight, not how much you can afford. An oversized battery sits half empty for most of the year while you keep paying the finance on capacity you never touch. We believe in selling the right size, even when the right size is smaller and less impressive on paper than the one the budget could technically stretch to.</p>
+
+<p>Where the battery physically goes matters too. It does not belong in a loft or a living space. Garages, utility rooms and external walls are the sensible choices, and any installer worth using should explain exactly why before fitting anything, not after.</p>
+
+<p>If you already have solar and are weighing up adding storage, <a href="https://www.thesolarshed.co.uk/home/domestic/battery-storage/">how much battery storage you actually need</a> is the more detailed version of this question.</p>
+
+<h2>Who solar genuinely isn't worth it for</h2>
+
+<p>Solar is not a universal yes, and anyone telling you otherwise is selling, not advising. A handful of situations genuinely change the answer.</p>
+
+<p>Very low electricity users, particularly households rarely home during daylight hours, see the weakest returns, because there is less demand to soak up what the panels generate during the day. If you are planning to move within the next few years, the upfront cost may not be recovered before the sale, even though a well-documented system can support the asking price. And a severely shaded or badly oriented roof deserves an honest survey answer, not a hopeful one dressed up in a glossy brochure.</p>
+
+<p>None of these rule solar out entirely. They are the honest reasons a survey exists in the first place, and why we would rather tell you before you spend anything than after.</p>
+
+<h2>Does East Anglia's weather actually matter?</h2>
+
+<p>It is the first objection most Norfolk homeowners raise, and it deserves a proper answer rather than a wave of the hand. Solar panels generate from daylight, not direct heat or clear skies, so cloud cover reduces output rather than stopping it.</p>
+
+<p>The regional picture is better than the weather jokes suggest for solar homes here. <a href="https://www.metoffice.gov.uk/binaries/content/assets/metofficegovuk/pdf/weather/learn-about/weather/regional-climates/eastern-england_-climate-met-office.pdf" target="_blank" rel="noopener noreferrer">Met Office's regional sunshine data for eastern England</a> shows east Norfolk, Suffolk and Essex averaging more than 1,600 hours of sunshine a year, above the roughly 1,450 hours seen over much of Lincolnshire and East Yorkshire. East Anglia is one of the sunnier corners of England, not one of the duller ones, whatever the local reputation suggests.</p>
+
+<p>The clearest way to judge real-world output for your own roof is not a national calculator. It is watching a live system running through an actual Norfolk winter, which is exactly what a barn full of working solar, battery and thermal kit is for.</p>
+
+<h2>So, is it worth it?</h2>
+
+<p>The honest answer for solar homes in 2026 is that it depends on two things you can check before you spend a penny: how you actually use electricity through the day, and what your roof can genuinely deliver. Get those two right and the current combination of 0% VAT, a rising price cap and Smart Export Guarantee income makes 2026 one of the more sensible years to have done it. Get them wrong, or take a single confident payback number on faith, and you are gambling on an average that was never describing your house in the first place.</p>
+
+<p>If you want to understand the wider picture beyond payback alone, <a href="https://www.thesolarshed.co.uk/2026/03/15/why-energy-independence-matters/">what energy independence actually looks like day to day</a> is worth reading next. Otherwise, the next honest step is a survey, not a sales call.</p>
+
+<div class="cfg-ss-cta-block">
+<h2>Want a real number instead of a brochure one?</h2>
+<p>Book a free home survey and we will tell you honestly whether your roof is worth it. Or come and see live systems working in the barn before you spend a penny. Ring Kevin on 0808 126 1289.</p>
+<a class="cfg-ss-cta-button" href="https://www.thesolarshed.co.uk/home/domestic/domestic-solar/">Book a free home survey</a>
+</div>
+
+<section id="faq">
+<h2>Frequently Asked Questions</h2>
+
+<div class="cfg-ss-faq-item">
+<h3>How long does it take for solar panels to pay for themselves?</h3>
+<p>Most UK homes see payback somewhere between six and ten years, but the real figure depends far more on how much of the electricity you generate you actually use yourself than on the size of the system. A household home during the day and using appliances while the sun is up will typically pay back faster than an identical system on a house that is empty until evening.</p>
+</div>
+
+<div class="cfg-ss-faq-item">
+<h3>Do solar panels still work in cloudy or rainy weather?</h3>
+<p>Yes. Panels generate from daylight rather than direct heat or clear skies, so output drops on overcast days rather than stopping. East Anglia also averages more sunshine hours a year than much of England, so the local weather reputation is worse than the actual data.</p>
+</div>
+
+<div class="cfg-ss-faq-item">
+<h3>What happens to the 0% VAT rate after March 2027?</h3>
+<p>The current 0% VAT relief on qualifying solar, solar thermal and battery installations runs until 31 March 2027 under HMRC's VAT Notice 708/6. From 1 April 2027 it reverts to the 5% reduced rate unless the government announces an extension, and no extension has been confirmed at the time of writing.</p>
+</div>
+
+<div class="cfg-ss-faq-item">
+<h3>Do I need battery storage to make solar worth it?</h3>
+<p>No. Solar alone can still pay back, particularly for households who use a good share of their electricity during the day. A battery raises self-consumption further and can shorten payback for evening-heavy households, but the common mistake is buying more battery capacity than your actual usage needs, which just sits half empty while you pay the finance on it.</p>
+</div>
+
+<div class="cfg-ss-faq-item">
+<h3>Is solar worth it if I might move house in a few years?</h3>
+<p>If you move before reaching the payback point, you may not recover the full upfront cost through bill savings alone, though a documented, well-installed system can support your asking price. If a house move within the next few years is a realistic possibility, it is worth raising directly at survey stage rather than assuming the answer either way.</p>
+</div>
+
+</section>
+
+</div>
+
+
+  <div class="cfg-preview-meta">
+    <h3>Publishing details — for the operator</h3>
+    <p><strong>Article title:</strong> Is Solar Worth It in 2026? An Honest Look at the Costs and Savings</p>
+    <p><strong>Meta title:</strong> Solar Homes: Is a Solar Panel System Worth It in 2026? (54/60 chars)</p>
+    <p><strong>Meta description:</strong> An honest look at whether solar homes in the UK are worth it in 2026: costs, 0% VAT, the Ofgem price cap and SEG income explained plainly. (138/160 chars)</p>
+    <p><strong>URL slug:</strong> /posts/solar-homes-worth-it</p>
+    <p><strong>Primary keyword:</strong> solar homes</p>
+  </div>
+</body>
+</html>
